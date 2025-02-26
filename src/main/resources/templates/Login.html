@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <link th:href="@{https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/images/beach.jpg');
+  }
+
+  .heading {
+    margin-top: 30px; /* Adjust the margin to your liking */
+    margin-bottom: 70px;
+    text-align: center;
+    font-size: x-large;
+  }
+
+  .heading h2 {
+    color: #3A8891;
+  }
+
+  .heading h2:first-letter {
+    color: #1E2A5E;
+    font-size: 60px;
+    font-style: italic;
+  }
+
+  .wrapper {
+    width: 440px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column; /* Align elements vertically */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease, height .2s ease;
+  }
+
+  .wrapper .from-box {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .from-box h2 {
+    font-size: 2em;
+    color: #0E5E6F;
+    text-align: center;
+    /*padding-top: 30px;*/
+    padding-bottom: 50px;
+  }
+
+  .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 20px 0; /* Adjust the margin to your liking */
+  }
+
+  .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #000000;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+  }
+
+  .bx {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #000000;
+    line-height: 57px;
+  }
+
+  .btn {
+    width: 100%;
+    height: 45px;
+    background: #0E5E6F;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    color: white;
+    font-weight: 500;
+  }
+
+  .login-register p a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .login-register p a:hover {
+    text-decoration: underline;
+  }
+
+  .already {
+    padding-top: 1rem;
+    display: inline-block;
+  }
+
+  .already a{
+    text-decoration: none;
+    color: #111111;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .already .reg {
+    padding-left: 20px;
+    font-weight: 700;
+  }
+
+  .already .reg:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="heading">
+  <h2>EXPLORE BANGLADESH</h2>
+</div>
+
+<div class="wrapper">
+  <div class="from-box login">
+    <h2>Login</h2>
+    <form th:action="@{/home}" th:object="${LoginForm}" method="post">
+      <div class="input-box">
+        <input type="email" th:field="*{email}" placeholder="email" required>
+        <i class='bx bx-envelope'></i>
+      </div>
+      <div class="input-box">
+        <input type="password" th:field="*{password}" placeholder="Password" required>
+        <i class='bx bxs-lock'></i>
+      </div>
+      <button type="submit" class="btn">Enter</button>
+
+      <div class="already">
+        <a>No account?? </a>
+        <a th:href="@{/loginForm}" class="reg">Register</a>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

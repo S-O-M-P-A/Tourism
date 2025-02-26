@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ratings</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #F5F5F5, #48CFCB, #229799, #424242);
+            background-size: cover;
+            max-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /*padding-top: 80px; !* Adjust according to the header *!*/
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .container {
+            margin-top: 50px;
+            width: 90%;
+            max-width: 1200px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 36px;
+            color: #16325B;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1::first-letter {
+            color: #227B94;
+            font-size: 47px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        thead {
+            background-color: #229799;
+            color: white;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        tbody {
+            display: block;
+            max-height: 400px; /* Limit height for scrolling */
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed; /* Ensures consistent column widths */
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #eeeeee;
+        }
+
+        tbody tr:hover {
+            background-color: #48CFCB;
+            color: white;
+        }
+
+        thead tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed; /* Ensures consistent column widths */
+        }
+
+        th {
+            background-color: #229799;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: bold;
+        }
+
+        td {
+            border-bottom: 1px solid #dddddd;
+            color: #333;
+        }
+
+        tbody::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        tbody::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        tbody::-webkit-scrollbar-thumb {
+            background-color: #229799;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            th, td {
+                padding: 10px 15px;
+            }
+        }
+
+        /* Custom Scrollbar Styling */
+        tbody::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        tbody::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        tbody::-webkit-scrollbar-thumb {
+            background-color: #229799;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Feedback Overview</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Reviewer Name</th>
+            <th>Date</th>
+            <th>Review Text</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate over records received from controller -->
+        <tr th:each="review : ${reviews}">
+            <td th:text="${review.reviewername}"></td>
+            <td th:text="${review.reviewdate}"></td>
+            <td th:text="${review.text}"></td>
+            <td th:text="${review.rating}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

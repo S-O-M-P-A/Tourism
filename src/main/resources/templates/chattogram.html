@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>district_scroll_down_chittagong</title>    
+    <link rel="stylesheet" href="district_scroll_down_chittagong.css">    
+</head>
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        background: black;
+        display: flex;
+        justify-content: space-between;
+
+        align-items: center;
+        z-index: 99;
+    }
+    .navigation a{
+        position: relative;
+        font-size: 1.3em;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 10px;
+        gap: 40px;
+    }
+    .navigation a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: #ffffff;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+    .navigation a:hover::after{
+        transform: scaleX(1);
+    }
+    ul{
+        padding: 10px 0;
+        margin: 0;
+        list-style: none;
+    }
+    li{
+        float: left;
+        align-items: center;
+    }
+
+    #chittagong{
+        height: 700px;
+        background: #dbc3c3;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #chittagong .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #chittagong .wrapper .carousel{
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #chittagong .carousel .card{
+        width: 500px;
+        height: 380px;
+        list-style: none;
+        background: #d7d2d2;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #chittagong .card .img img{
+        width: 480px;
+        height: 290px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    #chittagong .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    @media screen and(max-width: 900px){
+        .wrapper .corousel{
+            grid-auto-columns: calc((100% /1 ) -9px);
+        }
+    }
+
+    @media screen and(max-width: 600px){
+        .wrapper .corousel{
+            grid-auto-columns: 100%;
+        }
+    }
+
+    ::-webkit-scrollbar{
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px gray;
+        border-radius: 4px;
+
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: rgb(186, 121, 246);
+        border-radius: 4px;
+    }
+
+    #coxbazar{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #rangamati{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #bandarban{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #khagrachari{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #feni{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #lakshmipur{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #comilla{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #noakhali{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #brahmanbaria{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    #chandpur{
+        height: 700px;
+        background: #ebc9c9;
+        display: inline-block;
+        width: 100%;
+    }
+    h1{
+        margin: 100px;
+        text-align: center;
+        padding: 0;
+        color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .navigation .home {
+        width: 65px;
+        height: 20px;
+        background: transparent;
+        border: 2px solid white;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        padding: 1px;
+        margin: 1px;
+    }
+
+    .navigation .home:hover {
+        background: black;
+        color: white;
+    }
+    <a href="#home">HOME</a>
+</style>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <ul>
+                <li class="home"><a th:href="@{/}">HOME</a></li>
+                <li><a href="#chittagong">CHATTOGRAM</a></li>
+                <li><a href="#coxbazar">COX'S BAZAR</a></li>
+                <li><a href="#rangamati">RANGAMATI</a></li>
+                <li><a href="#bandarban">BANDARBAN</a></li>
+                <li><a href="#khagrachari">KHAGRACHARI</a></li>
+                <li><a href="#feni">FENI</a></li>
+                <li><a href="#lakshmipur">LAKSHMIPUR</a></li>
+                <li><a href="#comilla">COMILLA</a></li>
+                <li><a href="#noakhali">NOAKHALI</a></li>
+                <li><a href="#brahmanbaria">BRAHMANBARIA</a></li>
+                <li><a href="#chandpur">CHANDPUR</a></li>
+            </ul>
+                
+        </nav>      
+    </header>
+
+        <div id="chittagong">
+            <h1>CHATTOGRAM</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a th:href="@{/potenga}">
+                        <div class="img">
+                            <img src="./images/potenga1.jpg">
+                        </div>
+                        <h2 align="center">POTENGA SEA BEACH</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/img22.jpg">
+                        </div>
+                        <h2 align="center">CHITTAGONG WAR CEMETERY</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/img1.jpg">
+                        </div>
+                        <h2 align="center">KHOIYACHARA WATERFALL</h2>
+                    </li>
+                    
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/gulia1.jpg">
+                        </div>
+                        <h2 align="center">GULIAKHALI SEA BEACH</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/chandan1.jpg">
+                        </div>
+                        <h2 align="center">CHANDANPURA MOSQUE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/ethno1.jpg">
+                        </div>
+                        <h2 align="center">ETHNOLOGICAL MUSEUM</h2>
+                    </li>
+                    
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/darga1.jpg">
+                        </div>
+                        <h2 align="center">SULTANUL AREFEEN BAYAZID BOSTAMI DARGAH SHARIF</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/foy1.jpg">
+                        </div>
+                        <h2 align="center">FOY'S LAKE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/mosque.jpg">
+                        </div>
+                        <h2 align="center">ANDARKILLA SHAHI JAME MOSQUE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/parki1.jpg">
+                        </div>
+                        <h2 align="center">PARKI BEACH</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/hill1.jpg">
+                        </div>
+                        <h2 align="center">CHANDRANATH HILL</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/zamburi.jpg">
+                        </div>
+                        <h2 align="center">JAMBOREE PARK</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/zia1.jpg">
+                        </div>
+                        <h2 align="center">ZIA MEMORIAL MUSEUM</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/zoo1.jpg">
+                        </div>
+                        <h2 align="center">CHATTOGRAM ZOO</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/mandir1.jpg">
+                        </div>
+                        <h2 align="center">CHANDRANATH TEMPLE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/bridge1.jpg">
+                        </div>
+                        <h2 align="center">SHAH AMANAT BRIDGE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="./images/naval1.jpg">
+                        </div>
+                        <h2 align="center">NAVAL SEA BEACH</h2>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+
+
+            <div id="coxbazar">
+                <h1>COX'S BAZAR</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <a th:href="@{/Coxs_Bazar_Sea_Beach}">
+                            <div class="img">
+                                <img src="./images/cox1.jpg">
+                            </div>
+                            <h2 align="center">COX'S BAZAR SEA BEACH </h2>
+                            </a>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/him11.jpg">
+                            </div>
+                            <h2 align="center">HIMCHARI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/saint1.jpg">
+                            </div>
+                            <h2 align="center">SAINT MARTIN</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/kutu1.jpg">
+                            </div>
+                            <h2 align="center">KUTUBDIA ISLAND</h2>
+                        </li>
+                        
+                        
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/inani22.jpg">
+                            </div>
+                            <h2 align="center">INANI SEA BEACH</h2>
+                        </li>
+                        
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/chera11.jpg">
+                            </div>
+                            <h2 align="center">CHERA DWIP</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/sonadia1.jpg">
+                            </div>
+                            <h2 align="center">SONADIA ISLAND</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/radient11.jpg">
+                            </div>
+                            <h2 align="center">RADIANT FISH WORLD</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/Shahporir1.jpg">
+                            </div>
+                            <h2 align="center">SHAPUREE ISLAND/SHAH PORIR DWIP</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/Ramu22.png">
+                            </div>
+                            <h2 align="center">RAMU RUBBER GARDEN</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/lama1.jpg">
+                            </div>
+                            <h2 align="center">LAMAPARA KHIANG</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/resort.jpg">
+                            </div>
+                            <h2 align="center">INANI ROYAL RESORT</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/sham1.png">
+                            </div>
+                            <h2 align="center">SHAMLAPUR BEACH</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="adi1.jpg">
+                            </div>
+                            <h2 align="center">ADINATH TEMPLE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/dula.jpg">
+                            </div>
+                            <h2 align="center">DULAHAZARA SAFARI PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/mahesh1.jpg">
+                            </div>
+                            <h2 align="center">MAHESHKHALI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/doria11.jpg">
+                            </div>
+                            <h2 align="center">DORIA NOGOR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/marine1.jpg">
+                            </div>
+                            <h2 align="center">MARINE DRIVE ROAD</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/ramub1.jpg">
+                            </div>
+                            <h2 align="center">RAMU BUDDHIST TEMPLE</h2>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+
+
+            <div id="rangamati">
+                <h1>RANGAMATI</h1> 
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <a th:href="@{/sajek}">
+                            <div class="img">
+                                <img src="./images/sajekk1.jpg">
+                            </div>
+                            <h2 align="center">SAJEK VALLEY </h2>
+                            </a>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/lakee1.jpg">
+                            </div>
+                            <h2 align="center">KAPTAI LAKE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/hang1.jpg">
+                            </div>
+                            <h2 align="center">HANGING BRIDGE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/Rajb1.jpg">
+                            </div>
+                            <h2 align="center">RAJBON BIHAR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/shuvo1.jpg">
+                            </div>
+                            <h2 align="center">SHUVOLONG JHORNA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/haja1.jpg">
+                            </div>
+                            <h2 align="center">HAZACHORA WATERFALLS</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/happy1.jpg">
+                            </div>
+                            <h2 align="center">HAPPY ISLAND</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/pol1.jpg">
+                            </div>
+                            <h2 align="center">POLWEL PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/munsi1.jpg">
+                            </div>
+                            <h2 align="center">BIRSRESTHA MUNSHI ABDUR RAUF MONUMENT</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/water11.jpg">
+                            </div>
+                            <h2 align="center">KOMOLOK WATERFALLS</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/mup1.jpg">
+                            </div>
+                            <h2 align="center">MUPPCHORA JHORNA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/lakev1.jpg">
+                            </div>
+                            <h2 align="center">LAKE VIEW ISLAND</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/aro1.jpg">
+                            </div>
+                            <h2 align="center">ARONNOK HOLIDAY RESORT</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/dhup1.jpg">
+                            </div>
+                            <h2 align="center">DHUPPANI WATERFALLS</h2>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+            
+            </div>
+
+
+
+            <div id="bandarban">
+                <h1>BANDARBAN</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/nil11.jpg">
+                            </div>
+                            <h2 align="center">NILGIRI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/nila1.jpg">
+                            </div>
+                            <h2 align="center">NILACHOL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/shor1.jpg">
+                            </div>
+                            <h2 align="center">SHORNO MONDIR-THE GOLDEN TEMPLE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/keo1.jpg">
+                            </div>
+                            <h2 align="center">KEOKRADONG</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">BOGALAKE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">NAFAKUM WATERFALL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">CHIMBUK HILL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">SHOILOPROPAT FOUNTAIN</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MARAYAN DONG</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">TINDU</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">ALI'S TUNNEL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">DEBOTAKHUM</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">JADIPAI WATERFALL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">SATVAIKHUM</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">RIJUK WATERFALL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">AMIAKUM WATERFALL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MILONCHORI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">DIM PAHAR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">DAMTUA FOUNTAIN</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">CHINGRI JHORNA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">NIL DIGONTO</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MEGHLA PARJATAN CENTER</h2>
+                        </li>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+
+
+            <div id="khagrachari">
+                <h1>KHAGRACHARI</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">ALUTIA CAVE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">MATAI PUKHIRI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">HORTICULTURE HERITAGE PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MUNG RAJBARI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">PANCHARI SHANTIPUR ARANYA KUTIR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">HATIMATHA PAHAR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">NEWZELAND PARA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">RISANG FOUNTAIN</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MAYABINI LAKE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">TAIDUCHARA WATERFALL</h2>
+                        </li>
+            
+            </div>
+
+
+            <div id="feni">
+                <h1>FENI</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">BIJOY SINGH DIGHI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">MUHURI PROJECT</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">ABDUS SALAM SMRITI MUESEUM</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">PRATAPPUR ZAMINDAR BARI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">RAJAJHIR DHIGI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">HSHAMSER GAZIR BANSHER KELLA RESORT</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">SHAMSER GAZI POND</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">RUBBER GARDEN</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">SHAMSHER GAZI'S TUNNEL</h2>
+                        </li>
+            
+            </div>
+
+
+            <div id="lakshmipur">
+                <h1>LAKSHMIPUR</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">ALEXANDER SEA BEACH </h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">DALAL BAZAR ZAMINDAR BARI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">MOTIRHAT BEACH</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">BALIA JAME MOSQUE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">KHOYA SAGOR DIGHI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">COMRADE TOAHA SMRITI SOUDHO</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">TITA KHAN JAME MOSQUE</h2>
+                        </li>
+            </div>
+
+
+            <div id="comilla">
+                <h1>COMILLA</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">JAHAPUR ZAMINDAR BARI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">SHALBON  BIHAR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">RUPBAN MURA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MAYNAMATI WAR CEMETRY</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">DHARMASAGAR DIGHI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">ANADA BIHAR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">KALBHAIRAV TEMPLE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">DINO PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MAYNAMATI MUSEUM</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">MAGIC PARADISE PARK</h2>
+                        </li>
+            
+            </div>
+
+
+
+            <div id="noakhali">
+                <h1>NOAKHALI</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">NIJHUM DWIP</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">MIAH BARI JAME MASJID</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">MUSAPUR CLOSER</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">BAZRA SHAHI JAM-E-MASJID</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">BHASAN CHAR</h2>
+                        </li>
+            </div>
+
+
+            <div id="brahmanbaria">
+                <h1>BRAHMANBARIA</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">HERITAGE PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">KALIBARI TEMPLE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">NEERMAHAL PALACE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">TRIPURA STATE TRIBAL MUSEUM</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">TRIPURA GOVERNMENT MUSEUM</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">DEVTAMURA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">ISKCON,MATH CHOWMUHANI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">KAMALESWARI TEMPLE</h2>
+                        </li>            
+            </div>
+
+
+            <div id="chandpur">
+                <h1>CHANDPUR</h1>
+                <div class="wrapper">        
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <div class="saju"><h2 align="center">HAJIGONJ BORO MASHJID</h2></div>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">CHANDPUR BORO STATION</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">RUPSHA JAMINDAR BARI</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img4.jpg">
+                            </div>
+                            <h2 align="center">MOHONPUR PARJATAN CENTRE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img5.jpg">
+                            </div>
+                            <h2 align="center">CHANDPUR RESORT</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img1.jpg">
+                            </div>
+                            <h2 align="center">ELISH CHATTAR</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img2.jpg">
+                            </div>
+                            <h2 align="center">CHANDPUR ESTUARY</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="./images/img3.jpg">
+                            </div>
+                            <h2 align="center">TRI MOHONA THEME PARK</h2>
+                        </li>
+                    </ul>
+            </div>
+        
+        </body>
+        </html>

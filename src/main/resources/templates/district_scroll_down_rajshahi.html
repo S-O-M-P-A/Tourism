@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>district_scroll_down</title>
+    <link rel="stylesheet" href="district_scroll_down_rajshahi.css">
+</head>
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        background: #3d2f2f;
+        display: flex;
+        justify-content: space-between;
+
+        align-items: center;
+        z-index: 99;
+    }
+    .navigation a{
+        position: relative;
+        font-size: 1.3em;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 70px;
+        gap: 40px;
+    }
+    .navigation a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: #ffffff;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+    .navigation a:hover::after{
+        transform: scaleX(1);
+    }
+    ul{
+        padding: 10px 0;
+        margin: 0;
+        list-style: none;
+    }
+    li{
+        float: left;
+        align-items: center;
+    }
+
+    #rajshahi {
+        height: 700px;
+        background: #e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #rajshahi  .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #rajshahi  .wrapper .carousel{
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #rajshahi  .carousel .card{
+        width: 535px;
+        height: 300px;
+        list-style: none;
+        background: #d5d7bd;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #rajshahi .card .img img{
+        width: 535px;
+        height: 230px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    #rajshahi  .card:hover{
+        transform: scale(1.3);
+        z-index:1;
+    }
+
+    @media screen and(max-width: 900px){
+        .wrapper .corousel{
+            grid-auto-columns: calc((100% /1 ) -9px);
+        }
+    }
+
+    @media screen and(max-width: 600px){
+        .wrapper .corousel{
+            grid-auto-columns: 100%;
+        }
+    }
+
+    ::-webkit-scrollbar{
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px gray;
+        border-radius: 4px;
+
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: rgb(152, 15, 3);
+        border-radius: 4px;
+    }
+
+    #joypurhat{
+        height: 700px;
+        background: #e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+    #naogaon{
+        height: 700px;
+        background: #e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+    #nawabganj{
+        height: 700px;
+        background: #e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+    #natore{
+        height: 700px;
+        background: #e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+    #pabna{
+        height: 700px;
+        background:#e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+    #bogra{
+        height: 700px;
+        background: #e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+    #sirajganj{
+        height: 700px;
+        background: #e5d7b8;
+        display: inline-block;
+        width: 100%;
+    }
+
+    h1{
+        margin: 100px;
+        text-align: center;
+        padding: 0;
+        color: #3d2f2f;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+</style>
+
+
+<html>
+    <header>
+        <nav class="navigation">
+            <ul>
+                <li class="home"><a th:href="@{/}">HOME</a></li>
+                <li><a href="#rajshahi">RAJSHAHI</a></li>
+                <li><a href="#joypurhat">JOYPURHAT</a></li>
+                <li><a href="#naogaon">NAOGAON</a></li>
+                <li><a href="#nawabganj">NAWABGANJ</a></li>
+                <li><a href="#natore">NATORE</a></li>                
+                <li><a href="#pabna">PABNA</a></li>
+                <li><a href="#bogra">BOGRA</a></li>
+                <li><a href="#sirajganj">SIRAJGANJ</a></li>                
+            </ul>
+        </nav>
+    </header>
+
+
+    
+    <div id="rajshahi">
+        <h1>RAJSHAHI</h1>
+        <div class="wrapper">
+            <ul class="carousel">
+                <li class="card">
+                    <div class="img">
+                        <img src="potenga1.jpg">
+                    </div>
+                    <h2 align="center">BAGHA SHAHI MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="img22.jpg">
+                    </div>
+                    <h2 align="center">VARENDRA RESEARCH MUSEUM</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="img1.jpg">
+                    </div>
+                    <h2 align="center">PUTHIA RAJBARI</h2>
+                </li>
+
+                <li class="card">
+                    <div class="img">
+                        <img src="gulia1.jpg">
+                    </div>
+                    <h2 align="center">PADMA GARDEN</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="chandan1.jpg">
+                    </div>
+                    <h2 align="center">BARA ANNIK TEMPLE</h2>
+                </li>
+                
+                <li class="card">
+                    <div class="img">
+                        <img src="foy1.jpg">
+                    </div>
+                    <h2 align="center">SHAHID ZIA SISHU PARK</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="mosque.jpg">
+                    </div>
+                    <h2 align="center">CHOTO SONA MOSQUE(SMALL GOLDEN MOSQUE)</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">RUINS OF THE BUDDHIST VIHAR AT PAHARPUR</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">KANTAJEW TEMPLE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">TAJHAT PALACE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">BEHULA LAKSHINDAR BASOR GHAR</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">KUSUMBA MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">BAGHA MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">PANCHARATNA GOBINDA TEMPLE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">GODDESS KALI TEMPLE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">KHERUA MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">NAVARATNA TEMPLE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">NAYABAD MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">NALDANGA TEMPLE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">BALIHAR RAJBARI</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="hill1.jpg">
+                    </div>
+                    <h2 align="center">CENTRAL SHAHID MINAR,RAJSHAHI UNIVERSITY</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zamburi.jpg">
+                    </div>
+                    <h2 align="center">T-BADH</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zia1.jpg">
+                    </div>
+                    <h2 align="center">SOMPUR MAHAVIHAR</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zoo1.jpg">
+                    </div>
+                    <h2 align="center">MOHASTHAN GARH</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="mandir1.jpg">
+                    </div>
+                    <h2 align="center">I-BADH </h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="bridge1.jpg">
+                    </div>
+                    <h2 align="center">SHAHEED A.H.M KAMARUZZAMAN CENTRAL PARK & ZOO</h2>
+                </li>
+                
+            </ul>
+        </div>
+    
+
+        <div id="joypurhat">
+            <h1>JOYPURHAT</h1>
+            <div class="wrapper">
+                <ul class="carousel">
+                    <li class="card">
+                        <div class="img">
+                            <img src="potenga1.jpg">
+                        </div>
+                        <h2 align="center">SHAHID HADIS PARK</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="img22.jpg">
+                        </div>
+                        <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="img1.jpg">
+                        </div>
+                        <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                    </li>
+    
+                    <li class="card">
+                        <div class="img">
+                            <img src="gulia1.jpg">
+                        </div>
+                        <h2 align="center">HIRON POINT</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="chandan1.jpg">
+                        </div>
+                        <h2 align="center">DIVISIONAL MUSEUM</h2>
+                    </li>
+                    
+                    <li class="card">
+                        <div class="img">
+                            <img src="foy1.jpg">
+                        </div>
+                        <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="mosque.jpg">
+                        </div>
+                        <h2 align="center">KARAMJOL</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="parki1.jpg">
+                        </div>
+                        <h2 align="center">BONOBILASH ZOO</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="hill1.jpg">
+                        </div>
+                        <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="zamburi.jpg">
+                        </div>
+                        <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="zia1.jpg">
+                        </div>
+                        <h2 align="center">SOLAR PARK</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="zoo1.jpg">
+                        </div>
+                        <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="mandir1.jpg">
+                        </div>
+                        <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="bridge1.jpg">
+                        </div>
+                        <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="naval1.jpg">
+                        </div>
+                        <h2 align="center">PUTNEY ISLAND</h2>
+                    </li>
+    
+                </ul>
+    
+            </div>
+
+            
+            <div id="naogaon">
+                <h1>NAOGAON</h1>
+                <div class="wrapper">
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="potenga1.jpg">
+                            </div>
+                            <h2 align="center">SHAHID HADIS PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="img22.jpg">
+                            </div>
+                            <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="img1.jpg">
+                            </div>
+                            <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                        </li>
+        
+                        <li class="card">
+                            <div class="img">
+                                <img src="gulia1.jpg">
+                            </div>
+                            <h2 align="center">HIRON POINT</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="chandan1.jpg">
+                            </div>
+                            <h2 align="center">DIVISIONAL MUSEUM</h2>
+                        </li>
+                        
+                        <li class="card">
+                            <div class="img">
+                                <img src="foy1.jpg">
+                            </div>
+                            <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="mosque.jpg">
+                            </div>
+                            <h2 align="center">KARAMJOL</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="parki1.jpg">
+                            </div>
+                            <h2 align="center">BONOBILASH ZOO</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="hill1.jpg">
+                            </div>
+                            <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="zamburi.jpg">
+                            </div>
+                            <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="zia1.jpg">
+                            </div>
+                            <h2 align="center">SOLAR PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="zoo1.jpg">
+                            </div>
+                            <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="mandir1.jpg">
+                            </div>
+                            <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="bridge1.jpg">
+                            </div>
+                            <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="naval1.jpg">
+                            </div>
+                            <h2 align="center">PUTNEY ISLAND</h2>
+                        </li>
+        
+                    </ul>
+        
+                </div>
+
+                
+
+                <div id="nawabganj">
+                    <h1>NAWABGANJ</h1>
+                    <div class="wrapper">
+                        <ul class="carousel">
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">SHAHID HADIS PARK</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="img22.jpg">
+                                </div>
+                                <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="img1.jpg">
+                                </div>
+                                <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                            </li>
+            
+                            <li class="card">
+                                <div class="img">
+                                    <img src="gulia1.jpg">
+                                </div>
+                                <h2 align="center">HIRON POINT</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="chandan1.jpg">
+                                </div>
+                                <h2 align="center">DIVISIONAL MUSEUM</h2>
+                            </li>
+                            
+                            <li class="card">
+                                <div class="img">
+                                    <img src="foy1.jpg">
+                                </div>
+                                <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="mosque.jpg">
+                                </div>
+                                <h2 align="center">KARAMJOL</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="parki1.jpg">
+                                </div>
+                                <h2 align="center">BONOBILASH ZOO</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="hill1.jpg">
+                                </div>
+                                <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="zamburi.jpg">
+                                </div>
+                                <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="zia1.jpg">
+                                </div>
+                                <h2 align="center">SOLAR PARK</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="zoo1.jpg">
+                                </div>
+                                <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="mandir1.jpg">
+                                </div>
+                                <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="bridge1.jpg">
+                                </div>
+                                <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="naval1.jpg">
+                                </div>
+                                <h2 align="center">PUTNEY ISLAND</h2>
+                            </li>
+            
+                        </ul>
+            
+                    </div>
+
+                    
+
+                    <div id="natore">
+                        <h1>NATORE</h1>
+                        <div class="wrapper">
+                            <ul class="carousel">
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="potenga1.jpg">
+                                    </div>
+                                    <h2 align="center">SHAHID HADIS PARK</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="img22.jpg">
+                                    </div>
+                                    <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="img1.jpg">
+                                    </div>
+                                    <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                                </li>
+                
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="gulia1.jpg">
+                                    </div>
+                                    <h2 align="center">HIRON POINT</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="chandan1.jpg">
+                                    </div>
+                                    <h2 align="center">DIVISIONAL MUSEUM</h2>
+                                </li>
+                                
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="foy1.jpg">
+                                    </div>
+                                    <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="mosque.jpg">
+                                    </div>
+                                    <h2 align="center">KARAMJOL</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="parki1.jpg">
+                                    </div>
+                                    <h2 align="center">BONOBILASH ZOO</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="hill1.jpg">
+                                    </div>
+                                    <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="zamburi.jpg">
+                                    </div>
+                                    <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="zia1.jpg">
+                                    </div>
+                                    <h2 align="center">SOLAR PARK</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="zoo1.jpg">
+                                    </div>
+                                    <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="mandir1.jpg">
+                                    </div>
+                                    <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="bridge1.jpg">
+                                    </div>
+                                    <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                                </li>
+                                <li class="card">
+                                    <div class="img">
+                                        <img src="naval1.jpg">
+                                    </div>
+                                    <h2 align="center">PUTNEY ISLAND</h2>
+                                </li>
+                
+                            </ul>
+                
+                        </div>
+
+                        
+
+                        <div id="pabna">
+                            <h1>PABNA</h1>
+                            <div class="wrapper">
+                                <ul class="carousel">
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="potenga1.jpg">
+                                        </div>
+                                        <h2 align="center">SHAHID HADIS PARK</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="img22.jpg">
+                                        </div>
+                                        <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="img1.jpg">
+                                        </div>
+                                        <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                                    </li>
+                    
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="gulia1.jpg">
+                                        </div>
+                                        <h2 align="center">HIRON POINT</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="chandan1.jpg">
+                                        </div>
+                                        <h2 align="center">DIVISIONAL MUSEUM</h2>
+                                    </li>
+                                    
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="foy1.jpg">
+                                        </div>
+                                        <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="mosque.jpg">
+                                        </div>
+                                        <h2 align="center">KARAMJOL</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="parki1.jpg">
+                                        </div>
+                                        <h2 align="center">BONOBILASH ZOO</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="hill1.jpg">
+                                        </div>
+                                        <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="zamburi.jpg">
+                                        </div>
+                                        <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="zia1.jpg">
+                                        </div>
+                                        <h2 align="center">SOLAR PARK</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="zoo1.jpg">
+                                        </div>
+                                        <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="mandir1.jpg">
+                                        </div>
+                                        <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="bridge1.jpg">
+                                        </div>
+                                        <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="naval1.jpg">
+                                        </div>
+                                        <h2 align="center">PUTNEY ISLAND</h2>
+                                    </li>
+                    
+                                </ul>
+                    
+                            </div>
+
+                            
+
+                            <div id="bogra">
+                                <h1>BOGRA</h1>
+                                <div class="wrapper">
+                                    <ul class="carousel">
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="potenga1.jpg">
+                                            </div>
+                                            <h2 align="center">SHAHID HADIS PARK</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="img22.jpg">
+                                            </div>
+                                            <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="img1.jpg">
+                                            </div>
+                                            <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                                        </li>
+                        
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="gulia1.jpg">
+                                            </div>
+                                            <h2 align="center">HIRON POINT</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="chandan1.jpg">
+                                            </div>
+                                            <h2 align="center">DIVISIONAL MUSEUM</h2>
+                                        </li>
+                                        
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="foy1.jpg">
+                                            </div>
+                                            <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="mosque.jpg">
+                                            </div>
+                                            <h2 align="center">KARAMJOL</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="parki1.jpg">
+                                            </div>
+                                            <h2 align="center">BONOBILASH ZOO</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="hill1.jpg">
+                                            </div>
+                                            <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="zamburi.jpg">
+                                            </div>
+                                            <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="zia1.jpg">
+                                            </div>
+                                            <h2 align="center">SOLAR PARK</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="zoo1.jpg">
+                                            </div>
+                                            <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="mandir1.jpg">
+                                            </div>
+                                            <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="bridge1.jpg">
+                                            </div>
+                                            <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="naval1.jpg">
+                                            </div>
+                                            <h2 align="center">PUTNEY ISLAND</h2>
+                                        </li>
+                        
+                                    </ul>
+                        
+                                </div>
+
+
+                                <div id="sirajganj">
+                                    <h1>SIRAJGANJ</h1>
+                                    <div class="wrapper">
+                                        <ul class="carousel">
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="potenga1.jpg">
+                                                </div>
+                                                <h2 align="center">SHAHID HADIS PARK</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="img22.jpg">
+                                                </div>
+                                                <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="img1.jpg">
+                                                </div>
+                                                <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                                            </li>
+                            
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="gulia1.jpg">
+                                                </div>
+                                                <h2 align="center">HIRON POINT</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="chandan1.jpg">
+                                                </div>
+                                                <h2 align="center">DIVISIONAL MUSEUM</h2>
+                                            </li>
+                                            
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="foy1.jpg">
+                                                </div>
+                                                <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="mosque.jpg">
+                                                </div>
+                                                <h2 align="center">KARAMJOL</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="parki1.jpg">
+                                                </div>
+                                                <h2 align="center">BONOBILASH ZOO</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="hill1.jpg">
+                                                </div>
+                                                <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="zamburi.jpg">
+                                                </div>
+                                                <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="zia1.jpg">
+                                                </div>
+                                                <h2 align="center">SOLAR PARK</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="zoo1.jpg">
+                                                </div>
+                                                <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="mandir1.jpg">
+                                                </div>
+                                                <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="bridge1.jpg">
+                                                </div>
+                                                <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="naval1.jpg">
+                                                </div>
+                                                <h2 align="center">PUTNEY ISLAND</h2>
+                                            </li>
+                            
+                                        </ul>
+                            
+                                    </div>
+                        
+
+        </body>
+    </html>

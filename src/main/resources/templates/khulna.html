@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>district_scroll_down</title>
+    <link rel="stylesheet" href="district_scroll_down_khulna.css">
+</head>
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        background: #3d2f2f;
+        display: flex;
+        justify-content: space-between;
+
+        align-items: center;
+        z-index: 99;
+    }
+    .navigation a{
+        position: relative;
+        font-size: 1.3em;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 40px;
+        gap: 40px;
+    }
+    .navigation a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: #ffffff;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+    .navigation a:hover::after{
+        transform: scaleX(1);
+    }
+    ul{
+        padding: 10px 0;
+        margin: 0;
+        list-style: none;
+    }
+    li{
+        float: left;
+        align-items: center;
+    }
+
+    #khulna {
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #khulna  .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #khulna  .wrapper .carousel{
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #khulna  .carousel .card{
+        width: 535px;
+        height: 300px;
+        list-style: none;
+        background: #d2d9d2;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #khulna .card .img img{
+        width: 535px;
+        height: 230px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    #khulna  .card:hover{
+        transform: scale(1.3);
+        z-index:1;
+    }
+
+    @media screen and(max-width: 900px){
+        .wrapper .corousel{
+            grid-auto-columns: calc((100% /1 ) -9px);
+        }
+    }
+
+    @media screen and(max-width: 600px){
+        .wrapper .corousel{
+            grid-auto-columns: 100%;
+        }
+    }
+
+    ::-webkit-scrollbar{
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px gray;
+        border-radius: 4px;
+
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: rgb(220, 83, 10);
+        border-radius: 4px;
+    }
+
+    #bagerhat{
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #chaudanga{
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #jashore{
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #jhenaidah{
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #kushtia{
+        height: 700px;
+        background:#bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #magura{
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #meherpur{
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #narail{
+        height: 700px;
+        background: #bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+    #satkhira{
+        height: 700px;
+        background:#bfddc2;
+        display: inline-block;
+        width: 100%;
+    }
+
+    h1{
+        margin: 100px;
+        text-align: center;
+        padding: 0;
+        color: #3d2f2f;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+</style>
+
+
+<body>
+    <header>
+        <nav class="navigation">
+            <ul>
+                <li class="home"><a th:href="@{/}">HOME</a></li>
+                <li><a href="#khulna">KHULNA</a></li>
+                <li><a href="#bagerhat">BAGERHAT</a></li>
+                <li><a href="#chaudanga">CHAUDANGA</a></li>
+                <li><a href="#jashore">JASHORE</a></li>
+                <li><a href="#jhenaidah">JHENAIDAH</a></li>                
+                <li><a href="#kushtia">KUSHTIA</a></li>
+                <li><a href="#magura">MAGURA</a></li>
+                <li><a href="#meherpur">MEHERPUR</a></li>
+                <li><a href="#narail">NORAIL</a></li>
+                <li><a href="#satkhira">SATKHIRA</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    
+    <div id="khulna">
+        <h1>KHULNA</h1>
+        <div class="wrapper">
+            <ul class="carousel">
+                <li class="card">
+                    <div class="img">
+                        <img src="potenga1.jpg">
+                    </div>
+                    <h2 align="center">SHAHID HADIS PARK</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="img22.jpg">
+                    </div>
+                    <h2 align="center">KHAN JAHAN ALI BRIDGE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="img1.jpg">
+                    </div>
+                    <h2 align="center">SHEIKH ABU NASER STADIUM</h2>
+                </li>
+
+                <li class="card">
+                    <div class="img">
+                        <img src="gulia1.jpg">
+                    </div>
+                    <h2 align="center">HIRON POINT</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="chandan1.jpg">
+                    </div>
+                    <h2 align="center">DIVISIONAL MUSEUM</h2>
+                </li>
+                
+                <li class="card">
+                    <div class="img">
+                        <img src="foy1.jpg">
+                    </div>
+                    <h2 align="center">GENOCIDE TORTURE ARCHIVE & MUSEUM</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="mosque.jpg">
+                    </div>
+                    <h2 align="center">KARAMJOL</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">BONOBILASH ZOO</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="hill1.jpg">
+                    </div>
+                    <h2 align="center">DAKKHINDIHI RABINDRA COMPLEX</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zamburi.jpg">
+                    </div>
+                    <h2 align="center">JATISONGHO SHISHU PARK</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zia1.jpg">
+                    </div>
+                    <h2 align="center">SOLAR PARK</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zoo1.jpg">
+                    </div>
+                    <h2 align="center">JAHANABAD CANTONMENT PARK</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="mandir1.jpg">
+                    </div>
+                    <h2 align="center">SHEIKH RASSEL ECO PARK </h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="bridge1.jpg">
+                    </div>
+                    <h2 align="center">RUPSHA RAILWAY BRIDGE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="naval1.jpg">
+                    </div>
+                    <h2 align="center">PUTNEY ISLAND</h2>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    <div id="bagerhat">
+        <h1>BAGERHAT</h1>
+        <div class="wrapper">
+            <ul class="carousel">
+                <li class="card">
+                    <div class="img">
+                        <img src="potenga1.jpg">
+                    </div>
+                    <h2 align="center">SUNDARBAN</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="img22.jpg">
+                    </div>
+                    <h2 align="center">SHAT GAMBUJ MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="img1.jpg">
+                    </div>
+                    <h2 align="center">BIBI BEGANI MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="gulia1.jpg">
+                    </div>
+                    <h2 align="center">RONBIJOYPUR MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="darga1.jpg">
+                    </div>
+                    <h2 align="center">MONGLA PORT</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="chandan1.jpg">
+                    </div>
+                    <h2 align="center">CHUNAKHOLA MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="darga1.jpg">
+                    </div>
+                    <h2 align="center">AYRA DHARMASABHA KALI TEMPLE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="ethno1.jpg">
+                    </div>
+                    <h2 align="center">SABEK DANGA MONUMENT</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="darga1.jpg">
+                    </div>
+                    <h2 align="center">REZA KHODA MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="foy1.jpg">
+                    </div>
+                    <h2 align="center">SINGAIR MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="mosque.jpg">
+                    </div>
+                    <h2 align="center">BAGERHAT MUSEUM</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="darga1.jpg">
+                    </div>
+                    <h2 align="center">KODLA MOTH</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="darga1.jpg">
+                    </div>
+                    <h2 align="center">KOCHIKHALI BEACH</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="parki1.jpg">
+                    </div>
+                    <h2 align="center">CHANDRAMAHAL ECO PARK</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="hill1.jpg">
+                    </div>
+                    <h2 align="center">NINE DOME MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zia1.jpg">
+                    </div>
+                    <h2 align="center">JAMTOLA BEACH</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="zoo1.jpg">
+                    </div>
+                    <h2 align="center">GHORA DIGHI</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="bridge1.jpg">
+                    </div>
+                    <h2 align="center">TOMB OF KHAN JAHAN ALI</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="naval1.jpg">
+                    </div>
+                    <h2 align="center">REZA KHODA MOSQUE</h2>
+                </li>
+                <li class="card">
+                    <div class="img">
+                        <img src="darga1.jpg">
+                    </div>
+                    <h2 align="center">AMTOLA PARK</h2>
+                </li>
+            </ul>
+        </div>
+
+
+        <div id="chaudanga">
+            <h1>CHAUDANGA</h1>
+            <div class="wrapper">
+                <div class="carousel">
+                    <li class="card">
+                        <div class="img">
+                            <img src="potenga1.jpg">
+                        </div>
+                        <h2 align="center">DC ECO PARK</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="img22.jpg">
+                        </div>
+                        <h2 align="center">IBRAHIMPUR PARK</h2>
+                    </li>
+                    
+                    <li class="card">
+                        <div class="img">
+                            <img src="img1.jpg">
+                        </div>
+                        <h2 align="center">ALAMDANGA SLAUGHTER HOUSE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="img1.jpg">
+                        </div>
+                        <h2 align="center">THAKURPUR JAME MOSQUE</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="img1.jpg">
+                        </div>
+                        <h2 align="center">DARSHANA</h2>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="img1.jpg">
+                        </div>
+                        <h2 align="center">EIGHT GRAVES</h2>
+                    </li>
+                    
+                </div>       
+
+            <div id="jashore">
+                <h1>JASHORE</h1>
+                <div class="wrapper">
+                    <ul class="carousel">
+                        <li class="card">
+                            <div class="img">
+                                <img src="potenga1.jpg">
+                            </div>
+                            <h2 align="center">MADHUPALLI OF POET MICHAEL MADHUSUDAN DUTTA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="parki1.jpg">
+                            </div>
+                            <h2 align="center">GODKHALI THE FLOWER VILLAGE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="img22.jpg">
+                            </div>
+                            <h2 align="center">CHACHRA SHIVA TEMPLE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="img1.jpg">
+                            </div>
+                            <h2 align="center">JHAPA BAOR</h2>
+                        </li>
+
+                        <li class="card">
+                            <div class="img">
+                                <img src="gulia1.jpg">
+                            </div>
+                            <h2 align="center">SHEKHPURA MOSQUE</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="chandan1.jpg">
+                            </div>
+                            <h2 align="center">VOROT VAYNA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="ethno1.jpg">
+                            </div>
+                            <h2 align="center">ETHNOLOGICAL MUSEUM</h2>
+                        </li>
+
+                        <li class="card">
+                            <div class="img">
+                                <img src="darga1.jpg">
+                            </div>
+                            <h2 align="center">MIRZANOGOR HAMMAMKHANA</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="foy1.jpg">
+                            </div>
+                            <h2 align="center">IMAMBARA OF HAJI MOHSIN</h2>
+                        </li>
+                        <li class="card">
+                            <div class="img">
+                                <img src="mosque.jpg">
+                            </div>
+                            <h2 align="center">KHAJURA BAOR</h2>
+                        </li>              
+                    </ul>
+                </div>
+
+
+                <div id="jhenaidah">
+                    <h1>JHENAIDAH</h1>
+                    <div class="wrapper">
+                        <ul class="carousel">
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">JORBANGLA MOSQUE</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">FAKIR LALON SHAH'S MAZAAR</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">MIYAR DALAN</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">GOLAKATA MOSQUE </h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">NUNGOLA MOSQUE</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">SHUKKUR MOLLICK MOSQUE</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="potenga1.jpg">
+                                </div>
+                                <h2 align="center">PATHAGAR MOSQUE</h2>
+                            </li>
+                            <li class="card">
+                                <div class="img">
+                                    <img src="img22.jpg">
+                                </div>
+                                <h2 align="center">BIBHUTIBHUSHAN WILDLIFE SANCTUARY</h2>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+
+                        <div id="kushtia">
+                            <h1>KUSHTIA</h1>
+                            <div class="wrapper">
+                                <ul class="carousel">
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="img1.jpg">
+                                        </div>
+                                        <h2 align="center">SHILAIDAHA RABINDRA KUTHIBARI</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="potenga1.jpg">
+                                        </div>
+                                        <h2 align="center">THE SHRINE OF LALON FAKIR</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="img22.jpg">
+                                        </div>
+                                            <h2 align="center">JHAUDIA SHAHI MOSQUE</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="img1.jpg">
+                                        </div>
+                                        <h2 align="center">JUGIA TATI PARA</h2>
+                                    </li>
+
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="gulia1.jpg">
+                                        </div>
+                                        <h2 align="center">TAGORE LODGE</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="chandan1.jpg">
+                                        </div>
+                                        <h2 align="center">GORAI RIVER</h2>
+                                    </li>
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="ethno1.jpg">
+                                        </div>
+                                        <h2 align="center">CHRISTIAN CEMETRY</h2>
+                                    </li>
+
+                                    <li class="card">
+                                        <div class="img">
+                                            <img src="darga1.jpg">
+                                        </div>
+                                        <h2 align="center">CHAPAIGACCHI BEEL</h2>
+                                    </li>                               
+                                </ul>
+                            </div>
+
+
+
+                            <div id="magura">
+                                <h1>MAGURA</h1>
+                                <div class="wrapper">
+                                    <ul class="carousel">
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="potenga1.jpg">
+                                            </div>
+                                            <h2 align="center">SRIPUR ZAMINDAR BARI</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="img22.jpg">
+                                            </div>
+                                            <h2 align="center">MOKARRAM ALI SHAH (R:) DARGAH</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="img1.jpg">
+                                            </div>
+                                            <h2 align="center">POET KAZI QUADER NAWAZ'S HOUSE</h2>
+                                        </li>
+
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="gulia1.jpg">
+                                            </div>
+                                            <h2 align="center">SIDDHESWARI MOTH</h2>
+                                        </li>
+                                        <li class="card">
+                                            <div class="img">
+                                                <img src="chandan1.jpg">
+                                            </div>
+                                            <h2 align="center">KING SITARAM PALACE</h2>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <div id="meherpur">
+                                    <h1>MEHERPUR</h1>
+                                    <div class="wrapper">
+                                        <ul class="carousel">
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="potenga1.jpg">
+                                                </div>
+                                                <h2 align="center">POTENGA SEA BEACH</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="img22.jpg">
+                                                </div>
+                                                <h2 align="center">CHITTAGONG WAR CEMETERY</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="img1.jpg">
+                                                </div>
+                                                <h2 align="center">KHOIYACHARA WATERFALL</h2>
+                                            </li>
+
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="gulia1.jpg">
+                                                </div>
+                                                <h2 align="center">GULIAKHALI SEA BEACH</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="chandan1.jpg">
+                                                </div>
+                                                <h2 align="center">CHANDANPURA MOSQUE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="ethno1.jpg">
+                                                </div>
+                                                <h2 align="center">ETHNOLOGICAL MUSEUM</h2>
+                                            </li>
+
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="darga1.jpg">
+                                                </div>
+                                                <h2 align="center">SULTANUL AREFEEN BAYAZID BOSTAMI DARGAH SHARIF</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="foy1.jpg">
+                                                </div>
+                                                <h2 align="center">FOY'S LAKE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="mosque.jpg">
+                                                </div>
+                                                <h2 align="center">ANDARKILLA SHAHI JAME MOSQUE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="parki1.jpg">
+                                                </div>
+                                                <h2 align="center">PARKI BEACH</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="hill1.jpg">
+                                                </div>
+                                                <h2 align="center">CHANDRANATH HILL</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="zamburi.jpg">
+                                                </div>
+                                                <h2 align="center">JAMBOREE PARK</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="zia1.jpg">
+                                                </div>
+                                                <h2 align="center">ZIA MEMORIAL MUSEUM</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="zoo1.jpg">
+                                                </div>
+                                                <h2 align="center">CHATTOGRAM ZOO</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="mandir1.jpg">
+                                                </div>
+                                                <h2 align="center">CHANDRANATH TEMPLE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="bridge1.jpg">
+                                                </div>
+                                                <h2 align="center">SHAH AMANAT BRIDGE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="naval1.jpg">
+                                                </div>
+                                                <h2 align="center">NAVAL SEA BEACH</h2>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+
+
+                                    <div id="narail">
+                                    <h1>NARAIL</h1>
+                                    <div class="wrapper">
+                                        <ul class="carousel">
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="potenga1.jpg">
+                                                </div>
+                                                <h2 align="center">NIHARRANJAN GUPTA'S HOUSE</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="img22.jpg">
+                                                </div>
+                                                <h2 align="center">SULTAN'S COMPLEX</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="img1.jpg">
+                                                </div>
+                                                <h2 align="center">BIR SHRESHTHA NOOR MOHAMMAD SHEIKH COMPLEX</h2>
+                                            </li>
+
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="gulia1.jpg">
+                                                </div>
+                                                <h2 align="center">SHOPNOBITHI PICNIC SPOT</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="chandan1.jpg">
+                                                </div>
+                                                <h2 align="center">CHITRA RESORT</h2>
+                                            </li>
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="ethno1.jpg">
+                                                </div>
+                                                <h2 align="center">NIRIBILI PICNIC SPOT</h2>
+                                            </li>
+
+                                            <li class="card">
+                                                <div class="img">
+                                                    <img src="darga1.jpg">
+                                                </div>
+                                                <h2 align="center">ARUNIMA ECO PARK</h2>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+
+                                    <div id="satkhira">
+                                        <h1>SATKHIRA</h1>
+                                        <div class="wrapper">
+                                            <ul class="carousel">
+                                                <li class="card">
+                                                    <div class="img">
+                                                        <img src="potenga1.jpg">
+                                                    </div>
+                                                    <h2 align="center">KALAGACHIA ECOTOURISM PARK</h2>
+                                                </li>
+                                                <li class="card">
+                                                    <div class="img">
+                                                        <img src="img22.jpg">
+                                                    </div>
+                                                    <h2 align="center">JASHOREESHWARI KALI TEMPLE</h2>
+                                                </li>
+                                                <li class="card">
+                                                    <div class="img">
+                                                        <img src="img1.jpg">
+                                                    </div>
+                                                    <h2 align="center">TETULIYA JAME MOSQUE</h2>
+                                                </li>
+
+                                                <li class="card">
+                                                    <div class="img">
+                                                        <img src="gulia1.jpg">
+                                                    </div>
+                                                    <h2 align="center">MANDARBARI BEACH</h2>
+                                                </li>
+                                                <li class="card">
+                                                    <div class="img">
+                                                        <img src="chandan1.jpg">
+                                                    </div>
+                                                    <h2 align="center">SONABARIA MATHBARI TEMPLE</h2>
+                                                </li>
+                                                <li class="card">
+                                                    <div class="img">
+                                                        <img src="ethno1.jpg">
+                                                    </div>
+                                                    <h2 align="center">MOZAFFER GARDEN AND RESORT</h2>
+                                                </li>
+
+                                                <li class="card">
+                                                    <div class="img">
+                                                        <img src="darga1.jpg">
+                                                    </div>
+                                                    <h2 align="center">NALTA SHARIF,KALIGANJ</h2>
+                                                </li>                                                
+                                            </ul>
+                                        </div>
+
+</body>
+
+</html>

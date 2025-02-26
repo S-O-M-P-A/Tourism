@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sajek.css">
+</head>
+
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    header {
+        position:fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        padding: 9px 100px;
+        background: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+    }
+
+    .navigation a{
+        position: relative;
+        font-size: 1.3em;
+        color: white;
+        text-decoration: none;
+        font-weight: 1000;
+        margin-left: 40px;
+    }
+
+    .navigation a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: #fff;
+        border-radius: 5px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+
+    .navigation a:hover::after{
+        transform-origin: left;
+        transform: scaleX(1);
+
+    }
+
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .large-image {
+        width: 800px;
+        height: 503px;
+        margin: 1px;
+    }
+
+    .small-images {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .small-image {
+        width: 450px;
+        height: 250px;
+        margin: 1px;
+    }
+
+    h1{
+        margin-top: 95px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+        margin: 80px;
+    }
+
+    .container {
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+        margin: 80px;
+    }
+
+    .history {
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+        margin: 80px;
+    }
+
+    .map{
+        font-size: 20px;
+        padding: 10px;
+
+    }
+
+    .map img {
+        width: 500px;
+        height: 310px;
+    }
+
+    .page{
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+
+    }
+
+    .image-container2 {
+        display: flex;
+        justify-content: space-between;
+        height: 300px;
+        width: 440px;
+        margin: 5px;
+    }
+
+    .image-container2 img {
+        width: 440px;
+        height: 300px;
+        margin: 5px;
+    }
+
+    .image-container2 .slide-heading {
+        top: 35px;
+        left: 10px;
+        font-size: 23px;
+        color: #fff;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        position: relative;
+    }
+
+
+</style>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <a th:href="@{/}">HOME</a>
+           <a th:href="@{/mountain}">MOUNTAIN</a>
+        </nav>
+    </header>
+
+    <h1>EXPLORE SAJEK VALLEY</h1>
+
+<div class="image-container">
+  <img src="./images/sajek valley.jpg" alt="Large Image" class="large-image">
+  <div class="small-images">
+    <img src="./images/sajek 2.jpg" alt="Small Image 1" class="small-image">
+    <img src="./images/sajek 3.jpg" alt="Small Image 2" class="small-image">
+  </div>
+</div>
+<br><br>
+<div class="description">
+    <h3>Place Description</h3><br>
+    <p>Sajek Valley is one of the most popular tourist spots in Bangladesh situated among the hills of the Kasalong range of mountains in Sajek union, Baghaichhari Upazila in Rangamati District. The valley is 2,000 feet (610 m) above sea level. Sajek Valley is known as the Queen of Hills & Roof of Rangamati. The name of Sajek Valley came from the Sajek River that originates from Karnafuli river. The Sajek river works as a border between Bangladesh and India.
+    </p>
+
+</div>
+
+<div class="description">
+    <h3>Place History</h3><br>
+    <p>Sajek valley is known for its natural environment and is surrounded by mountains, dense forest, and grassland hill tracks. Many small rivers flow through the mountains among which the Kachalong and the Machalong are notable. On the way to Sajek valley, one has to cross the Mayni range and the Mayni river. The road to Sajek has high peaks and falls.</p>
+</div>
+
+<div class="description">
+    <h3>How To Go</h3>
+    <p>Cox's Bazar is connected by road with Chittagong and Dhaka. And you can take a private car from any place of the country.</p>
+</div>
+
+<div class="container">
+    <div style="display: flex">
+        <div style="width: 50%">
+            <h3>Hotels</h3>
+        <p>1. D'more Sajek Valley Hotel & Resort <a href="https://www.google.com/maps/place/Ocean+Paradise+Hotel+%26+Resort/@21.4184653,91.9798715,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc62a55555555:0x2e775757ca43f46a!5m2!4m1!1i2!8m2!3d21.4184603!4d91.9824464!16s%2Fg%2F1tdrbhmr?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>2. Lushai Cottage <a href="https://www.google.com/maps/place/Seagull+Hotels+Ltd./@21.4272402,92.0040765,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc7c80b779d15:0xc66df8c0d661e36b!5m2!4m1!1i2!8m2!3d21.4272352!4d92.0066514!16s%2Fg%2F11tczknttg?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>3. Madventure Resort <a href="https://www.google.com/maps/place/Sayeman+Beach+Resort/@21.4141284,91.9814117,16.92z/data=!4m9!3m8!1s0x30adc880c658b5f1:0xbe5e1e83da2852a3!5m2!4m1!1i2!8m2!3d21.4141566!4d91.9840816!16s%2Fg%2F12lt3d9b8?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>4. Nil Pahari Eco Resort <a href="https://www.google.com/maps/place/Hotel+The+Cox+Today/@21.4261938,91.9736472,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc8650b8ad619:0x1e4481d35c0803bb!5m2!4m1!1i2!8m2!3d21.4261888!4d91.9762221!16s%2Fg%2F11xfpx2_d?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>5. Salka Eco Resort <a href="https://www.google.com/maps/place/Sea+Pearl+Beach+Resort+%26+Spa+Cox's+Bazar/@21.2156545,92.0463191,17z/data=!3m1!4b1!4m9!3m8!1s0x30addb98f90b08b7:0x6c678eda6bd69230!5m2!4m1!1i2!8m2!3d21.2156495!4d92.048894!16s%2Fg%2F11b6t3lr_b?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        </div>
+        <div style="width: 50%"> 
+            <h3>Restaurants</h3>
+            <p>1. Chhimbal Reastaurant <a href="https://www.google.com/maps/place/Ocean+Paradise+Hotel+%26+Resort/@21.4184653,91.9798715,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc62a55555555:0x2e775757ca43f46a!5m2!4m1!1i2!8m2!3d21.4184603!4d91.9824464!16s%2Fg%2F1tdrbhmr?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>2. Montana Restaurant <a href="https://www.google.com/maps/place/Seagull+Hotels+Ltd./@21.4272402,92.0040765,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc7c80b779d15:0xc66df8c0d661e36b!5m2!4m1!1i2!8m2!3d21.4272352!4d92.0066514!16s%2Fg%2F11tczknttg?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>3. FoodNKI <a href="https://www.google.com/maps/place/Sayeman+Beach+Resort/@21.4141284,91.9814117,16.92z/data=!4m9!3m8!1s0x30adc880c658b5f1:0xbe5e1e83da2852a3!5m2!4m1!1i2!8m2!3d21.4141566!4d91.9840816!16s%2Fg%2F12lt3d9b8?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>4. Kashbon Restaurant <a href="https://www.google.com/maps/place/Hotel+The+Cox+Today/@21.4261938,91.9736472,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc8650b8ad619:0x1e4481d35c0803bb!5m2!4m1!1i2!8m2!3d21.4261888!4d91.9762221!16s%2Fg%2F11xfpx2_d?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>5. Chilekotha Restaurant <a href="https://www.google.com/maps/place/Sea+Pearl+Beach+Resort+%26+Spa+Cox's+Bazar/@21.2156545,92.0463191,17z/data=!3m1!4b1!4m9!3m8!1s0x30addb98f90b08b7:0x6c678eda6bd69230!5m2!4m1!1i2!8m2!3d21.2156495!4d92.048894!16s%2Fg%2F11b6t3lr_b?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        </div>
+</div>
+<br><br>
+<div class="map">
+    <h3>Map</h3><br>
+<!--    <a href="https://www.google.com/maps?q=23.3818,92.2938" target="_blank">View Sajek Valley on Google Maps</a>-->
+
+    <a href="https://www.google.com/maps/place/Sajek+Valley/@23.3841907,92.2919492,16.5z/data=!4m6!3m5!1s0x3752feb9eb8c7313:0xf1d07a0cc84f174c!8m2!3d23.3838125!4d92.2939219!16s%2Fg%2F11c1vlfsy0?entry=ttu"><img src="./images/sajek map.png" alt=""></a>
+</div>
+<br><br>
+<div class="map">
+    <h3>Travel Tips</h3>
+    <p>1. Make a timetable, and stick to it!</p>
+    <p>2. Check the weather forecast</p>
+    <p>3. Wear the proper clothes and footwork</p>
+    <p>4. Don’t take unnecessary risks</p>
+    <p>5. Know what to do in emergencies</p>
+    <p>6. Pack light but efficiently</p>
+</div>
+<br><br>
+<div class="map">
+    <h3>Must-Try Food Items in Cox’s Bazar</h3>
+    <p>1. Bamboo Shoot Curry</p>
+    <p>2. Mumsa</p>
+    <p>3. Chakma Style Chicken Curry</p>
+    <p>4. Chakma Style Fish Curry</p>
+</div>
+<br><br>
+<div class="page">
+    <h3>Explore More Places</h3>
+    <div class="image-container2">
+        <div class="mySlides">
+            <h2 class="slide-heading">SAINT MARTIN ISLAND</h2>
+            <a href="place.html"><img src="./images/saint martin.jpg" alt="Image 1"></a>
+        </div>
+        <div class="mySlides">
+            <h2 class="slide-heading">LAL SHAPLA BILL</h2>
+            <a href="place.html"><img src="./images/LAL SHAPLA BILL.jpg" alt="Image 2"></a>
+        </div>
+        <div class="mySlides">
+            <h2 class="slide-heading">NIJHOOM DEEP</h2>
+            <a href="place.html"><img src="./images/NIJHOOM DEEP.jpg" alt="Image 3"></a>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

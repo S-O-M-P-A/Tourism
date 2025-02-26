@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDEX</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+
+<style>
+
+    html{
+        scroll-behavior: smooth;
+        padding: 0;
+        margin: 0;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+        background-color: #F9F5EB;
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+
+
+    /* REVIEW START */
+    .review-container {
+        max-width: 1200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 10px auto 50px;
+        gap: 200px;
+    }
+
+    .review-container .review-left{
+        text-align: center;
+        width: 45%;
+        background: linear-gradient(to bottom right, #0E5E6F, #3A8891);
+        border-radius: 8px;
+        padding: 20px;
+        color: #fff;
+        /*margin: 20px auto;*/
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .review-container .review-left h1 {
+        padding-top: 0;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #E0F7FA; /* Lighter color for contrast */
+    }
+
+    .review-container .review-left p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #E0F7FA;
+    }
+
+    .review-right {
+        background: linear-gradient(to bottom right, #0E5E6F, #3A8891, #61764B);
+        border-radius: 8px;
+        padding: 20px;
+        color: #FFFBEB;
+        width: 50%;
+        height: 600px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        /*overflow: auto; !* Allows scrolling if content overflows *!*/
+    }
+
+    .review-box {
+        background: #FFFBEB; /* Light background for the review box to contrast with the gradient */
+        border-radius: 8px;
+        padding: 15px;
+        color: #0E5E6F; /* Darker text color for better readability */
+    }
+
+    .review-box form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .review-box input[type="text"], .review-box textarea {
+        border: 1px solid #3A8891;
+        border-radius: 4px;
+        padding: 8px;
+        font-size: 1em;
+        color: #0E5E6F;
+        background-color: #FFFBEB; /* Light background for inputs */
+    }
+
+    .review-box input[type="text"]:focus, .review-box textarea:focus {
+        border-color: #0E5E6F;
+        outline: none;
+    }
+
+    .review-box button {
+        background: #0E5E6F;
+        color: #FFFBEB;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .review-box button:hover {
+        background: #3A8891;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .ratings {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .ratings form {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ratings button {
+        background-color: #3A8891;
+        color: black;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        font-size: 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .ratings button:hover {
+        background-color: #0E5E6F;
+        color: white;
+        box-shadow: 1px 1px 10px black;
+    }
+
+
+    /*REVIEW END*/
+
+
+
+
+
+
+
+
+
+
+
+    header {
+        position:fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+    }
+
+    .navigation a{
+        position: relative;
+        font-size: 1.3em;
+        color: #ddcdc3;
+        text-decoration: none;
+        font-weight: 900;
+        margin: 0 25px;
+    }
+
+    .navigation a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: #ddcdc3;
+        border-radius: 5px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+
+    .navigation a:hover::after{
+        transform-origin: left;
+        transform: scaleX(1);
+
+    }
+    .navigation .btnLogin-popup{
+        width: 130px;
+        height: 50px;
+        background: transparent;
+        border: 2px solid #fff;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.3em;
+        color: #fff;
+        font-weight: 1000;
+        margin-left: 40px;
+        transition: .5s;
+    }
+
+    .navigation .btnLogin-popup:hover{
+        background: #fff;
+        color: black;
+    }
+
+    .wrapper{
+        position: absolute;
+        top: -1%;
+        bottom: -35px;
+        width: 440px;
+        height: 440px;
+        background: transparent;
+        border: 2px solid rgba(111, 52, 52, 0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transform: scale(0);
+        transition: transform .5s ease, height .2s ease;
+        margin: 100px;
+        margin-left: 900px;
+    }
+
+    .wrapper.active-popup{
+        transform: scale(1);
+    }
+
+    .wrapper.active{
+        height: 600px;
+    }
+
+    .wrapper .from-box{
+        width: 100%;
+        padding: 40px;
+    }
+
+    .wrapper .from-box.login{
+        transition: transform .18s ease;
+        transform: translateX(0);
+    }
+
+    .wrapper.active .from-box.login{
+        transition: none;
+        transform: translateX(-400px);
+    }
+
+    .wrapper .from-box.register{
+        position: absolute;
+        transition: none;
+        transform: translateX(400px);
+    }
+
+    .wrapper.active .from-box.register{
+        transition: transform .18s ease;
+        transform: translateX(0);
+    }
+
+    .wrapper .icon-close{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45px;
+        height: 45px;
+        background: rgb(13, 60, 69);
+        font-size: 2em;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 20px;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .from-box h2{
+        font-size: 2em;
+        color: black;
+        text-align: center;
+    }
+
+    .input-box{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border-bottom:2px solid #162938;
+        margin: 30px 0;
+    }
+
+    .input-box label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 1em;
+        color: #000000;
+        font-weight: 500;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    .input-box input:focus~label,
+    .input-box input:valid~label{
+        top: -5px;
+    }
+
+    .input-box input{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        color: #000000;
+        font-weight: 600;
+        padding: 0 35px 0 5px;
+    }
+
+    .input-box .icon{
+        position: absolute;
+        right: 8px;
+        font-size: 1.2em;
+        color: #000000;
+        line-height: 57px;
+    }
+
+    .remember-forgot{
+        font-size: 1em;
+        color: #000000;
+        font-weight: 540;
+        margin: -15px 0 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .remember-forgot label input{
+        accent-color: #000000;
+        margin-right: 3px;
+    }
+
+    .remember-forgot a{
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .remember-forgot a:hover{
+        text-decoration: underline;
+    }
+    .btn{
+        width: 100%;
+        height: 45px;
+        background: rgb(9, 63, 12);
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+    }
+
+    .login-register{
+        font-size: 1em;
+        color:#000000;
+        text-align: center;
+        font-weight: 540;
+        margin: 25px 0 10px;
+    }
+    .login-register p a{
+        color: #000000;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .login-register p a:hover{
+        text-decoration: underline;
+    }
+    #home .showcase{
+        width: 100%;
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        z-index: -1;
+
+
+    }
+
+    #home .video-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    #home .content{
+
+        /*width: 1200px;*/
+        /*height: auto;*/
+        /*margin: auto;*/
+        color: #e5ddd8;
+        /*position: relative;*/
+        /*text-align: left;*/
+        position: absolute;
+        top: 50%;
+        left: 15px; /* Aligns content to the left */
+        transform: translateY(-50%); /* Centers content vertically */
+        padding: 20px; /* Add padding if needed */
+        color: white; /* Text color, adjust as needed */
+        z-index: 1; /* Ensure content is above the video */
+
+    }
+    #home .content h1{
+        font-size: 20px;
+        color: #ffffff;
+        margin-bottom: 0px;
+        /*text-align: center;*/
+        padding-left: 20px;
+        justify-content: flex-start;
+        /*margin-left: 10%;*/
+    }
+    #home  .content h2{
+        font-size: 40px;
+        color: #ffffff;
+        margin-top: 0px;
+        text-align: left;
+        justify-content: flex-start;
+
+    }
+    #home  .background-clip{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+
+    /*TRAVEL DESTINATION START*/
+
+    #travel_destination{
+        /* margin-top: 1200px;*/
+        height: 710px;
+        /*background: #F9F5EB;*/
+        display: inline-block;
+        width: 100%;
+        font-size: 1.3em;
+        text-align: justify;
+    }
+
+    #travel_destination p{
+        font-size: 12px;
+    }
+    .main h1{
+        font-size: 30px;
+        color:  black;
+        margin-top: 85px;
+    }
+
+
+    .container{
+        width: 1280px;
+        margin: 70px auto 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .container .box{
+        position: relative;
+        width: 300px;
+        height: 230px;
+        background:  #fff;
+        margin: 10px;
+        box-sizing: border-box;
+        display: inline-block;
+    }
+
+
+    .container .box .imgbox{
+        position: relative;
+    }
+
+    .container .box .imgbox img{
+        object-fit: cover;
+        width: 300px;
+        height: 230px;
+        transition: transform 2s;
+    }
+
+    .container .box:hover .imgbox img{
+        transform: scale(1.1);
+    }
+
+    .text{
+        font-family: 'Times New Roman', Times, serif;
+        color: rgb(209, 204, 204);
+        font-size: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 0 0 20px black;
+    }
+
+    .container .box .details{
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, .7);
+        transform: scaleY(0);
+        transition: transform .5s;
+    }
+    .container .box:hover .details{
+        transform: scaleY(1);
+    }
+
+    .container .box .details .content{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        padding: 15px;
+        color: #fff;
+    }
+    .container .box .details .content h2{
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        color: #ff0;
+
+    }
+    .container .box .details .content p{
+        margin: 10px 0 0;
+        padding: 0;
+    }
+
+    /*TRAVEL DESTINATION END*/
+
+    /*POPULAR SPOTS START*/
+
+    #popular_spots{
+        /*background-color: #bfddc2;*/
+        /*margin-top: 40px;*/
+        height: 700px;
+        /*background: white;*/
+        display: inline-block;
+        width: 100%;
+        font-size: 1.3em;
+        text-align: justify;
+    }
+
+    #popular_spots h2{
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        padding: 20px;
+        margin-top: 60px;
+    }
+
+    .slider-frame{
+        overflow: hidden;
+        height: 600px;
+        width: 1000px;
+        /*margin-left: 360px;*/
+        /*margin-top: 20px;*/
+    }
+
+    .recommendation_main {
+        height: 710px;
+        /*margin-top: 500px;*/
+    }
+
+    .recommendation_main h3 {
+        margin-top: 85px;
+    }
+
+    #recommendation .container{
+        width: 1280px;
+        margin: 70px auto 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #recommendation p{
+        font-size: 12px;
+    }
+
+    #recommendation .container .box{
+        position: relative;
+        width: 300px;
+        height: 250px;
+        background:  #fff;
+        margin: 10px;
+        box-sizing: border-box;
+        display: inline-block;
+    }
+
+
+    #recommendation .container .box .imgbox{
+        position: relative;
+    }
+
+    #recommendation .container .box .imgbox img{
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        width: 300px;
+        height: 250px;
+        transition: transform 2s;
+    }
+
+    #recommendation .container .box:hover .imgbox img{
+        transform: scale(1.1);
+    }
+
+    #recommendation .text{
+        font-family: 'Times New Roman', Times, serif;
+        color: white;
+        font-size: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 0 0 20px black;
+    }
+
+    #recommendation .container .box .details{
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, .7);
+        transform: scaleY(0);
+        transition: transform .5s;
+    }
+
+    #recommendation .container .box:hover .details{
+        transform: scaleY(1);
+    }
+
+    #recommendation .container .box .details .content{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        padding: 15px;
+        color: #fff;
+    }
+    #recommendation .container .box .details .content h2{
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        color: #ff0;
+
+    }
+
+    #recommendation .container .box .details .content p{
+        margin: 10px 0 0;
+        padding: 0;
+    }
+
+
+    /*RECOMMENDATION END*/
+
+
+    #foot {
+        padding: 20px;
+        height: 350px;
+        display: inline-block;
+        width: 100%;
+        margin-top: 160px;
+        background-color: black;
+    }
+    footer{
+        position: absolute;
+        background: #111;
+        height: auto;
+        /*width: 100vw;*/
+        width: 90%;
+
+        padding-top: 40px;
+        color: #fff;
+    }
+    .footer-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-content h3{
+        font-size: 2.1rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        line-height: 3rem;
+    }
+    .footer-content p{
+        max-width: 500px;
+        margin: 10px auto;
+        line-height: 28px;
+        font-size: 14px;
+        color: #cacdd2;
+    }
+    .socials{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 3rem 0;
+    }
+    .socials li{
+        margin: 0 10px;
+    }
+    .socials a{
+        text-decoration: none;
+        color: #fff;
+        border: 1.1px solid white;
+        padding: 5px;
+
+        border-radius: 50%;
+
+    }
+    .socials a i{
+        font-size: 1.1rem;
+        width: 20px;
+        transition: color .4s ease;
+    }
+    .socials a:hover i{
+        color: aqua;
+    }
+
+    .footer-bottom{
+        background: #000;
+        width: 100vw;
+        padding: 20px;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+    .footer-bottom p{
+        float: left;
+        font-size: 14px;
+        word-spacing: 2px;
+        text-transform: capitalize;
+    }
+    .footer-bottom p a{
+        color:#44bae8;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    .footer-bottom span{
+        text-transform: uppercase;
+        opacity: .4;
+        font-weight: 200;
+    }
+    .footer-menu{
+        float: right;
+
+    }
+    .footer-menu ul{
+        display: flex;
+    }
+    .footer-menu ul li{
+        padding-right: 10px;
+        display: block;
+    }
+    .footer-menu ul li a{
+        color: #cfd2d6;
+        text-decoration: none;
+    }
+    .footer-menu ul li a:hover{
+        color: #27bcda;
+    }
+
+
+
+
+    /*search bar*/
+
+    .search-bar-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 66px;
+        z-index: 98;
+        border: 2px solid #D0B8A8;
+
+        /*padding: 0 10px;*/
+        box-sizing: border-box;
+    }
+
+    .search-bar-container form {
+        display: flex;
+        width: 100%;
+    }
+
+    .search-bar-container input[type="text"] {
+        font-weight: bold;
+        color: white;
+        flex: 1;
+        padding: 0.5rem;
+        font-size: 20px;
+        background: transparent;
+        backdrop-filter: blur(200px);
+        border: none;
+
+    }
+
+    .search-bar-container ::placeholder {
+        font-weight: bold;
+        color: black;
+    }
+
+    .search-bar-container button {
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        font-size: 20px;
+        background-color: #D0B8A8;
+        color: black;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+    }
+
+    .search-bar-container button:hover {
+        background-color:  #4e3e33;
+        color: white;
+        border: 2px solid #4e3e33;
+    }
+
+
+    /*    FAQ START*/
+
+    #faq {
+        background-color: #F9F5EB;
+        /*line-height: 1.6rem;*/
+        /*margin: 3rem 8rem;*/
+        background-size: cover;
+        font-family: 'Times New Roman', Times, serif;
+        color: #1A4870;
+    }
+
+    #faq h1 {
+        margin-bottom: 30px;
+        text-align: center;
+        color: #0f404b;
+    }
+    #faq h1:first-letter {
+        font-size: 60px;
+        font-style: italic;
+    }
+
+    #faq .accordian {
+        margin-right: 90px;
+        margin-left: 90px;
+        background-color: #FFF5EE;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgb(156, 156, 156);
+        cursor: pointer;
+    }
+
+    #faq .ques {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    #faq .ans {
+        font-size: 1.09rem;
+    }
+
+    #faq .ans .underline {
+        border: 1px solid rgba(203, 203, 203, 0.3);
+    }
+
+    #faq ul{
+        padding-left: 25px;
+    }
+
+    #faq li .bold {
+        font-size: 1.09rem;
+        font-weight: 800;
+    }
+
+    #faq .hide {
+        display: none;
+    }
+
+    #faq .email-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    #faq .para {
+        font-size: 1.09rem;
+        font-weight: 600;
+        padding-right: 20px;
+    }
+
+    #faq .email-button {
+        background-color: #0E5E6F;
+        color: #EDEAE0;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-weight: 500;
+    }
+
+    #faq .email-button:hover {
+        background-color: #3A8891;
+        color: #FFFDD0;
+    }
+
+    /*FAQ END*/
+
+
+
+
+
+
+
+</style>
+
+<body>
+<header>
+    <nav class="navigation">
+        <a href="#home">HOME</a>
+        <a href="#travel_destination">TRAVEL DESTINATION</a>
+        <a href="#popular_spots">POPULAR SPOTS</a>
+        <a href="#recommendation">RECOMMENDATION</a>
+        <a th:href="@{/aboutbangladesh}">ABOUT BANGLADESH</a>
+        <a th:href="@{/profile}">PROFILE</a>
+        <a th:href="@{/logout}">LOGOUT</a>
+    </nav>
+</header>
+<!--search bar-->
+<div class="search-bar-container">
+
+    <form th:action="@{/search}" method="get">
+        <input type="text" name="searchContent" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+
+</div>
+
+<div id="home">
+    <div class="showcase">
+        <div class="video-container">
+            <video autoplay loop muted plays-inline class="background-clip">
+                <source th:src="@{/images/girl travel sea1.mp4}" type="video/mp4">
+            </video>
+        </div>
+        <div class="content">
+            <h1>Let's Explore Our</h1>
+            <h2>GREEN BANGLADESH</h2>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+<div id="travel_destination" class="main">
+    <h1 th:align="center">TRAVEL DESTINATION</h1>
+    <div class="container">
+        <div class="box">
+            <a th:href="@{/dhaka}">
+                <div class="imgbox">
+                    <img th:src="@{./images/dhaka.jpg}">
+                </div>
+                <div class="text"> DHAKA </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>DHAKA</h2>
+                        <p>Dhaka, the capital of Bangladesh, is the world's ninth-largest and seventh-most densely
+                            populated city. It's a vital hub for culture, economics, and science in Eastern South Asia,
+                            with a significant Muslim population. Dhaka ranks third in South Asia and 39th worldwide in
+                            terms of GDP. Situated on the Ganges Delta, it's defined by several rivers and is the
+                            largest Bengali-speaking city globally.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="box">
+            <a th:href="@{/sylhet}">
+                <div class="imgbox">
+                    <img th:src="@{./images/Sylhet2.jpg}">
+                </div>
+                <div class="text"> SYLHET </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>SYLHET</h2>
+                        <p>Sylhet, a major city in northeastern Bangladesh, is situated along the Surma River.
+                            It is one of the oldest city, boasting a rich historical and cultural heritage and a
+                            diverse population(Garo, Khasia, Monipuri, and Hazong). The district is surrounded by
+                            the Jaintia, Khasi, and Tripura hills and is home to around 500,000 people with a high
+                            population density. It is renowned for its tea gardens and lush tropical forests in the
+                            Sylhet region.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="box">
+            <a th:href="@{/chattogram}">
+                <div class="imgbox">
+                    <img th:src="@{./images/chittagong.jpg}">
+                </div>
+                <div class="text"> CHATTOGRAM </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>CHATTOGRAM </h2>
+                        <P>Chittagong, officially called Chattogram,is the chief Indian Ocean port
+                            of Bangladesh.It is the second-largest city in Bangladesh after Dhaka and third
+                            largest city in Bengal region. It is the administrative seat of the eponymous
+                            division and district. It lies about 12 miles (19 km) north of the mouth of the
+                            Karnaphuli River between the Chittagong Hill Tracts and the Bay of Bengal.</P>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="box">
+            <a th:href="@{/khulna}">
+                <div class="imgbox">
+                    <img src="./images/khulna3.jpg">
+                </div>
+                <div class="text"> KHULNA </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>KHULNA</h2>
+                        <P>Khulna is south of Jessore and Narail districts, east of Satkhira district,
+                            west of Bagerhat and north of the Bay of Bengal. It is part of the Ganges Delta,
+                            the world's largest river delta. Sundarbans, the world's largest mangrove forest,
+                            is in the southern part of the delta.One of the impressive Muslim monuments in
+                            the whole of South Asia "The Sixty Dome Mosque" commonly known as Shat Gambuj
+                            Mosque is in Bagerhat,Khulna.</P>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+
+        <div class="box">
+            <a th:href="@{/district_scrolldown_barishal}">
+                <div class="imgbox">
+                    <img th:src="@{./images/barisal2.jpg}">
+                </div>
+                <div class="text"> BARISAL </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>BARISHAL</h2>
+                        <P>Barishal is a major city that lies on the banks of the Kirtankhola river in south-central
+                            Bangladesh. It is the largest city and the administrative headquarter of both Barishal District
+                            and Barishal Division. The city was once called the Venice of the East or the Venice
+                            of Bengal. Barisal gives its name to a curious natural phenomenon known as the Barisal guns,
+                            thundering noises heard in the delta and apparently coming from the sea.</P>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="box">
+            <a th:href="@{/district_scroll_down_rajshahi}">
+                <div class="imgbox">
+                    <img th:src="@{./images/rajshahi.jpg}">
+                </div>
+                <div class="text"> RAJSHAHI </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>RAJSHAHI</h2>
+                        <P>Rajshahi is a metropolitan city, commercial and educational center of Bangladesh, located on the north bank of the Padma River, near the Bangladesh-India border. The city is surrounded by the satellite towns of Nowhata and Katakhali. Modern Rajshahi lies in the ancient region of Pundravardhana. The Rajshahi municipality was a divisional capital of the greater Rajshahi division which is the largest division in Bengal Province.</P>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="box">
+            <a th:href="@{/rangpur}">
+                <div class="imgbox">
+                    <img th:src="@{./images/rangpurnew.jpg}">
+                </div>
+                <div class="text"> RANGPUR </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>RANGPUR</h2>
+                        <P>Rangpur, a city of history and heritage is located in the northwestern part of Bangladesh.
+                            Little economic development took place until the 1990s due to frequent flooding before Teesta
+                            Barrage construction. Rangpur is famous for Shataranji, Haribhanga (mango), Rangpur (fruit),
+                            tobacco and also Coal is found near this district. It is renowned for handicrafts, especially Shataranji, a GI product of Bangladesh. Also referred to it as "Baher Desh."</P>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
+        <div class="box">
+            <a th:href="@{/mymensingh}">
+                <div class="imgbox">
+                    <img th:src="@{./images/mymensingh5.jpg}">
+                </div>
+                <div class="text"> MYMENSINGH </div>
+                <div class="details">
+                    <div class="content">
+                        <h2>MYMENSINGH</h2>
+                        <P>Mymensingh, a metropolitan city and capital of Mymensingh Division, Bangladesh, is located on the bank of Brahmaputra River. Its name is derived from Shah Momin or Momin Singh, an ethnic Bengali Muslim ruler. Mymensingh is associated with the Brahmaputra river, handcrafted duvets called Nakshikantha, and a rural ballad called Maimansingha Gitika. It is close to Tura, a city in Meghalaya from the Gobrakura Land Port [^1^][1].</P>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+</div>
+
+<div
+<div id="popular_spots">
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+        #container .slideshow-container {
+
+            /*margin-top: 50px;*/
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+            /*margin: 0 auto;*/
+            height: auto; /* Remove the fixed height */
+            /*margin-left: 215px;*/
+            margin: 0 300px;
+        }
+
+        #container .mySlides {
+            display: none;
+            max-width: 100%;
+            width: 100%; /* Allow the width to adjust and maintain aspect ratio */
+            max-height: 560px; /* Set a maximum height to limit the height */
+        }
+
+        #container .slideshow-container img {
+            width: 100%;
+            /*height: auto;*/
+            aspect-ratio: 16/9;
+        }
+
+        #container .slide-heading {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+            color: #fff;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        #container .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: white;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #container .prev {
+            left: 10px;
+        }
+
+        #container .next {
+            right: 10px;
+        }
+
+    </style>
+<!--    </head>-->
+<!--    <body>-->
+
+    <div id="container">
+        <h2>POPULAR SPOTS</h2>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <h2 class="slide-heading">HATIRJHEEL</h2>
+                <img src="./images/hatirjheel.jpg" alt="Image 1">
+            </div>
+            <div class="mySlides">
+                <h2 class="slide-heading">MOHERA ZAMIDAR BARI</h2>
+                <a th:href="@{Coxs_Bazar_Sea_Beach}"><img src="./images/MOHERA ZAMIDAR BARI.jpg" alt="Image 2"></a>
+            </div>
+            <div class="mySlides">
+                <h2 class="slide-heading">SUNDARBAN</h2>
+                <a th:href="@{Coxs_Bazar_Sea_Beach}"><img src="./images/SUNDARBAN.jpg" alt="Image 3"></a>
+            </div>
+            <div class="mySlides">
+                <h2 class="slide-heading">COX'S BAZAR</h2>
+                <a th:href="@{Coxs_Bazar_Sea_Beach}"><img src="./images/COX'S BAZAR.jpg" alt="Image 1"></a>
+            </div>
+            <div class="mySlides">
+                <h2 class="slide-heading">NIJHOOM DEEP</h2>
+                <a th:href="@{Coxs_Bazar_Sea_Beach}"><img src="./images/NIJHOOM DEEP.jpg" alt="Image 2"></a>
+            </div>
+            <div class="mySlides">
+                <h2 class="slide-heading">BICHANAKANDI</h2>
+                <a th:href="@{Coxs_Bazar_Sea_Beach}"><img src="./images/BICHANAKANDI.jpg" alt="Image 3"></a>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)"><i class="fa-solid fa-chevron-left"></i></a>
+            <a class="next" onclick="plusSlides(1)"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        // Auto advance the slides every 5 seconds (5000 milliseconds)
+        let autoSlideInterval = setInterval(() => plusSlides(1), 5000);
+    </script>
+</div>
+
+<div id="recommendation">
+    <div class="recommendation_main">
+        <h3 align="center">RECOMMENDATION</h3>
+        <h2 align="center">WANT TO TRY?</h2>
+        <div class="container">
+            <div class="box" th:fragment="waterfall">
+                <a href="waterfall.html">
+                    <div class="imgbox">
+                        <img src="./images/waterfall.jpg" th:src="@{/images/waterfall.jpg}">
+                    </div>
+                    <div class="text"> WATERFALL </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>WATERFALL</h2>
+                            <p>Waterfalls are natural wonders that captivate tourists worldwide. These enchanting cascades, found in various
+                                landscapes, offer a sensory experience like no other. The sight of water plunging from great heights, the
+                                soothing sound of rushing water, and the refreshing mist create an unforgettable spectacle. Waterfalls beckon
+                                travelers to explore the beauty of nature and find solace in their mesmerizing presence.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="box" th:fragment="beach">
+                <a href="beach.html">
+                    <div class="imgbox">
+                        <img src="./images/beach.jpg" th:src="@{/images/beach.jpg}">
+                    </div>
+                    <div class="text"> BEACH </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>BEACH</h2>
+                            <p>Beaches are iconic destinations for tourists, drawing them to the world's coastlines. With their powdery sands,
+                                azure waters, and endless horizons, beaches offer a perfect escape from the hustle and bustle of daily life.
+                                Whether it's the thrill of surfing on rolling waves, the relaxation of sunbathing, or the joy of building
+                                sandcastles, beaches cater to a wide range of preferences.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="box" th:fragment="mountain">
+                <a th:href="@{/mountain}">
+                    <div class="imgbox">
+                        <img src="./images/mountain.jpg" th:src="@{/images/mountain.jpg}">
+                    </div>
+                    <div class="text"> MOUNTAIN </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>MOUNTAIN</h2>
+                            <p>Mountains, the majestic sentinels of the Earth, are a timeless magnet for tourists. Rising high into the heavens,
+                                they offer not only a physical challenge but also a spiritual connection to nature. The allure of mountainous
+                                landscapes lies in their rugged beauty, pristine wilderness, and breathtaking vistas. Adventurers seek the thrill
+                                of scaling these peaks, while others come to find peace and solitude in the mountains' serene environment. Mountains
+                                transcend geographic boundaries and cultures, and their beauty is universally appreciated.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="box" th:fragment="heritage">
+                <a href="heritage.html">
+                    <div class="imgbox">
+                        <img src="./images/heritage.jpg" th:src="@{/images/heritage.jpg}">
+                    </div>
+                    <div class="text"> HERITAGE </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>HERITAGE</h2>
+                            <p>Heritage tourism invites travelers to delve into the rich tapestry of human history and culture. Destinations with
+                                deep historical significance, such as ancient cities, archaeological sites, and heritage villages, draw tourists
+                                seeking a glimpse into the past. Heritage tourism celebrates our shared human legacy, allowing visitors to explore
+                                museums, monuments, and historical landmarks.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="box" th:fragment="lake">
+                <a href="lake.html">
+                    <div class="imgbox">
+                        <img src="./images/lake.jpg" />
+                    </div>
+                    <div class="text"> LAKE </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>LAKE</h2>
+                            <p>Lakes, nature's serene and reflective gems, have an enduring appeal for tourists. Their tranquil waters mirror the
+                                surrounding landscapes, creating picturesque settings for relaxation and recreation. Whether nestled in forested
+                                valleys, nestled between mountains, or gracing urban parks, lakes provide a peaceful escape. Tourists flock to these
+                                watery oases for activities like boating, fishing, or simply enjoying a leisurely stroll along their shores.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="box" th:fragment="hiking">
+                <a href="hiking.html">
+                    <div class="imgbox">
+                        <img src="./images/hiking.jpg" />
+                    </div>
+                    <div class="text"> HIKING </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>HIKING</h2>
+                            <p>Hiking, a cherished outdoor pursuit, beckons tourists to explore the world on foot. This activity allows travelers
+                                to immerse themselves in the natural wonders of diverse landscapes. From winding forest trails and rugged mountain
+                                paths to coastal cliffs and arid deserts, hiking offers an intimate connection with the environment. Tourists relish
+                                the physical challenge and the opportunity to discover hidden treasures along the way.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="box" th:fragment="green-tourism">
+                <a href="green-tourism.html">
+                    <div class="imgbox">
+                        <img src="./images/green-tourism.jpg" />
+                    </div>
+                    <div class="text"> GREEN TOURISM </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>GREEN TOURISM</h2>
+                            <p>Green tourism, often referred to as sustainable or eco-tourism, is a growing trend among environmentally conscious
+                                tourists. This form of travel emphasizes minimizing the ecological footprint while enjoying the beauty of natural
+                                and cultural attractions. Activities like wildlife watching, nature hikes, and responsible interactions with
+                                indigenous communities are common in green tourism.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+
+            <div class="box" th:fragment="food">
+                <a href="food.html">
+                    <div class="imgbox">
+                        <img src="./images/food.jpg" th:src="@{/images/food.jpg}">
+                    </div>
+                    <div class="text"> FOOD </div>
+                    <div class="details">
+                        <div class="content">
+                            <h2>FOOD</h2>
+                            <p>Travelers embark on culinary adventures to savor unique flavors, regional dishes, and local traditions. From streetfood stalls serving mouthwatering snacks to upscale restaurants offering gourmet experiences, food tourism celebrates the diverse and delicious offerings of different cultures. It's a sensory exploration that not only tantalizes taste buds but also provides insights into a region's history, culture, and way of life.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+<!--   ekhane cilo         -->
+<!--            <div class="">-->
+
+<!--                <form th:action="@{/review}" method="post">-->
+<!--                    Your name : <input type="text" name="reviewername"> <br/>-->
+<!--                    Date : <input type="text" name="reviewdate"> <br/>-->
+<!--                    What's your opinion : <input type="text" name="text"> <br/>-->
+<!--                    Rating : <input type="text" name="rating"> <br/>-->
+<!--                    <button type="submit">Submit</button>-->
+<!--                </form>-->
+<!--            </div>-->
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<div class="review-container">
+    <div class="review-left">
+        <h1>Memories Unveiled</h1>
+        <p>Share your unforgettable experiences with us!Your reviews help others explore the wonders of the world, one adventure at a time.</p>
+    </div>
+
+    <div class="review-right">
+
+        <div class="review-box">
+            <form th:action="@{/review}" method="post">
+                Your name : <input type="text" name="reviewername"> <br/>
+                Date : <input type="text" name="reviewdate"> <br/>
+<!--                What's your opinion : <input type="text" name="text"> <br/>-->
+
+                Rating : <input type="text" name="rating"> <br/>
+
+                What's your opinion:<br/>
+                <textarea name="text" rows="4" column="10"></textarea><br/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+
+        <div class="ratings">
+            <form th:action="@{/fetchRecord}" method="get">
+                <button type="submit">See Ratings</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--FAQ START-->
+
+<body id="faq">
+<h1>Wondering About Something? We’ve Got Answers!</h1>
+<div class="Faq-container">
+    <div class="accordian">
+        <div class="ques">
+            <h3> What are the must-see attractions in Bangladesh?</h4>
+                <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="ans hide">
+            <div class="underline"></div>
+            <ul>
+                <li>
+                    <span class="bold">Sundarbans Mangrove Forest: </span>
+                    <span>Home to the Bengal tiger and diverse wildlife.</span>
+                </li>
+                <li>
+                    <span class="bold">Cox's Bazar: </span>
+                    <span>The longest natural sea beach in the world.</span>
+                </li>
+                <li>
+                    <span class="bold">Sylhet Tea Gardens: </span>
+                    <span>Scenic landscapes and tea estates.</span>
+                </li>
+                <li>
+                    <span class="bold">Historical Sites: </span>
+                    <span>The ancient city of Mahasthangarh and the 60 Dome Mosque in Bagerhat.</span>
+                </li>
+                <li>
+                    <span class="bold">Rangamati and Bandarban: </span>
+                    <span>Stunning hill tracts with beautiful lakes and waterfalls.</span>
+                </li>
+                <li>
+                    <span class="bold">Paharpur:</span>
+                    <span>A UNESCO World Heritage Site with ancient Buddhist ruins.</span>
+                </li>
+                <li>
+                    <span class="bold">Sonargaon:</span>
+                    <span>The historic city and former capital of Bengal.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordian">
+        <div class="ques">
+            <h3>What is the best time to visit Bnagladesh?</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="ans hide">
+            <div class="underline"></div>
+            <p> The best time to visit Bangladesh is during the winter season, from November to February, when the weather is cooler and dry. The monsoon season (June to October) can be rainy, but it also brings lush green landscapes.</p>
+        </div>
+    </div>
+
+    <div class="accordian">
+        <div class="ques">
+            <h3>What are the visa requirements for visiting Bangladesh?</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="ans hide">
+            <div class="underline"></div>
+            <p>Most visitors require a visa to enter Bangladesh. Tourists can apply for a visa at Bangladeshi embassies or consulates in their home country. Some nationalities can obtain a visa on arrival, particularly for short-term visits. It's advisable to check with the nearest Bangladeshi consulate for specific requirements.</p>
+        </div>
+    </div>
+
+
+    <div class="accordian">
+        <div class="ques">
+            <h3>What is the local cuisine like in Bangladesh?</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="ans hide">
+            <div class="underline"></div>
+            <p>Bangladeshi cuisine is rich and diverse, featuring rice, fish, and lentils as staples. Popular dishes include Hilsa fish, Biryani, Panta Ilish, and various curries. Street food like Fuchka and Chotpoti are also favorites. Vegetarians will find plenty of options as well.</p>
+        </div>
+    </div>
+
+
+    <div class="accordian">
+        <div class="ques">
+            <h3>What are the transportation options within Bangladesh?</h3>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <div class="ans hide">
+            <div class="underline"></div>
+            <ul>
+                <li>
+                    <span class="bold">Buses: </span>
+                    <span>Widely available and economical for long-distance travel.</span>
+                </li>
+                <li>
+                    <span class="bold">Trains: </span>
+                    <span> A comfortable option for traveling between major cities.</span>
+                </li>
+                <li>
+                    <span class="bold">Rickshaws: </span>
+                    <span>Popular for short distances within cities.</span>
+                </li>
+                <li>
+                    <span class="bold">Domestic Flights: </span>
+                    <span> Connect major cities like Dhaka, Chittagong, and Sylhet.</span>
+                </li>
+                <li>
+                    <span class="bold">Boats and Ferries: </span>
+                    <span>Essential for travel in riverine areas like the Sundarbans.</span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="email-section">
+    <span class="para">For more querries</span>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=u2004102@student.cuet.ac.bd" target="_blank">
+        <button class="email-button">Email Us</button>
+    </a>
+</div>
+
+<script>
+    let accordian = document.querySelectorAll(".accordian");
+    let ques = document.querySelectorAll(".ques");
+    let ans = document.querySelectorAll(".ans");
+    let icn = document.querySelectorAll("i");
+
+    accordian.forEach((box, index) => {
+        box.addEventListener("click", () => {
+            ans[index].classList.toggle("hide");
+
+            if (ans[index].classList.contains("hide")) {
+                icn[index].style.transform = "rotate(0deg)";
+            }
+            else {
+                icn[index].style.transform = "rotate(180deg)";
+            }
+        });
+    });
+</script>
+
+</body>
+
+<!--FAQ END-->
+
+<div id="foot">
+    <footer>
+        <div class="footer-content">
+            <h3>A WEBSITE ABOUT TOURISM</h3>
+            <p>Here you will find information about all the tourist spots of Bangladesh. Our goal is to provide you with information about all the tourist places of all 64 districts of Bangladesh.</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-google-plus-g"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy; <a href="#">S A R</a> </p>
+            <div class="footer-menu">
+                <ul class="f-menu">
+                    <li><a th:href="@{/home}">Home</a></li>
+                    <li><a th:href="@{/about}">About</a></li>
+                    <li><a th:href="@{/contact}">Contact</a></li>
+                    <li><a th:href="@{/blog}">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script th:src="@{/js/index.js}"></script>
+<script type="module" th:src="@{/webjars/ionicons/7.1.0/dist/ionicons/ionicons.esm.js}"></script>
+<script nomodule th:src="@{/webjars/ionicons/7.1.0/dist/ionicons/ionicons.js}"></script>
+</body>
+</html>

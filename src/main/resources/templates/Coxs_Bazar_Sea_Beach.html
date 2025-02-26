@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Cox's Bazar Sea Beach.css">
+</head>
+
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    header {
+        position:fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        padding: 9px 100px;
+        background: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99;
+    }
+
+    .navigation a{
+        position: relative;
+        font-size: 1.3em;
+        color: white;
+        text-decoration: none;
+        font-weight: 1000;
+        margin-left: 40px;
+    }
+
+    .navigation a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: #fff;
+        border-radius: 5px;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+
+    .navigation a:hover::after{
+        transform-origin: left;
+        transform: scaleX(1);
+
+    }
+
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .large-image {
+        width: 800px;
+        height: 503px;
+        margin: 1px;
+    }
+
+    .small-images {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .small-image {
+        width: 450px;
+        height: 250px;
+        margin: 1px;
+    }
+
+    h1{
+        margin-top: 95px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+        margin: 80px;
+    }
+
+    .container {
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+        margin: 80px;
+    }
+
+    .history {
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+        margin: 80px;
+    }
+
+    .map{
+        font-size: 20px;
+        padding: 10px;
+
+    }
+
+    .map img {
+        width: 500px;
+        height: 310px;
+    }
+
+    .page{
+        font-size: 20px;
+        padding: 10px;
+        /*border: 1px solid lightgray; 8*/
+
+    }
+
+    .image-container2 {
+        display: flex;
+        justify-content: space-between;
+        height: 300px;
+        width: 440px;
+        margin: 5px;
+    }
+
+    .image-container2 img {
+        width: 440px;
+        height: 300px;
+        margin: 5px;
+    }
+
+    .image-container2 .slide-heading {
+        top: 35px;
+        left: 10px;
+        font-size: 23px;
+        color: #fff;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        position: relative;
+    }
+
+
+</style>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <a th:href="@{/}">HOME</a>
+            <a th:href="@{/district_scroll_down_chittagong}">CHATTAGRAM DIVISION</a>
+
+            <!--            <li class="home"><a th:href="@{/}">HOME</a></li>-->
+<!--            <li class="home"><a th:href="@{/district_scroll_down_chittagong}">CHATTAGRAM DIVISION</a></li>-->
+
+        </nav>
+    </header>
+
+    <h1>EXPLORE COX'S BAZAR SEA BEACH</h1>
+
+<div class="image-container">
+  <img src="./images/cox4.jpg" alt="Large Image" class="large-image">
+  <div class="small-images">
+    <img src="./images/cox2.jpg" alt="Small Image 1" class="small-image">
+    <img src="./images/cox3.jpg" alt="Small Image 2" class="small-image">
+  </div>
+</div>
+<br><br>
+<div class="description">
+    <h3>Place Description</h3><br>
+    <p>Cox's Bazar Beach (Bengali: কক্সবাজার সমুদ্র সৈকত), located at Cox's Bazar, Bangladesh, is the longest natural sea beach in the world running 120 kilometres (75 mi) and 5th longest beach after Praia do Cassino of Brazil, Padre Island on the US Gulf Coast, Eighty Mile Beach in Western Australia, and Ninety Mile Beach of Australia. It is the top tourist destination of
+        Bangladesh. At high tide, the beach is 200 metres (660 ft) wide, and at low tide, it is 400 metres (1,300 ft) wide on average. Quicksand is a danger during ebb tide.According to a survey of Bangladesh Bureau of Statistics in December 2021, each year 17% of the citizens of the country visit Cox's Bazar, which is about 3 million. However, the number of trips to Cox's Bazar beach is declining due to various issues.
+    </p>
+
+</div>
+
+<div class="description">
+    <h3>Place History</h3><br>
+    <p>From the early 9th century, the greater Chittagong area including Cox's Bazar was under the rule of Arakan kings until its conquest by the Mughals in 1666 AD. When the Mughal Prince Shah Shuja was passing through the hilly terrain of the present-day Cox's Bazar on his way to Arakan, he was attracted to its scenic and captivating beauty. He commanded his forces to camp there. His retinue of one thousand palanquins stopped there for some time. A place named Dulahazara, meaning "one thousand palanquins," still exists in the area.After the Mughals, the place came under the control of the Tipras and the Arakanese, followed by the Portuguese and then the British.
+        
+        The name Cox's Bazar originated from the name of a British East India Company officer, Captain Hiram Cox, who was appointed as the superintendent of Palonki (today's Cox's Bazar) outpost. He succeeded Warren Hastings, who became the Governor of Bengal following the British East India Company Act in 1773. Cox embarked upon the task of rehabilitation and settlement of the Arakanese refugees in the area.[9] He rehabilitated many refugees in the area, but died in 1799 before finishing his work. To commemorate him, a market was established and named after him, called Cox's Bazar. Cox's Bazar was first established in 1854 and became a municipality in 1869.
+        
+        Just after the end of British rule in 1947, Cox's Bazar became part of East Pakistan. Captain Advocate Fazlul Karim, the first post-independence chairman of Cox's Bazar Municipality, established the Tamarisk Forest along the beach. He wanted to attract tourists as well as to protect the beach from tsunamis. He donated much of his father-in-law's and his own lands as sites for constructing a public library and a town hall. Karim was inspired to build Cox's Bazar as a tourist spot after seeing beaches of Mumbai and Karachi, and was a resort pioneer in developing Cox's Bazar as a tourist destination. Karim established a maternity hospital, a stadium and a sewer system by procuring grants from the Ford Foundation and Rockefeller Foundation through correspondence. T. H. Matthews, the principal of the Dhaka Engineering College, was a friend who had helped him in these fundraising efforts. Engineer Chandi Charan Das was the government civil engineer who worked on all these projects. </p>
+</div>
+
+<div class="description">
+    <h3>How To Go</h3>
+    <p>Cox's Bazar is connected by road and air with Chittagong and Dhaka. And you can take a private car from any place of the country.</p>
+</div>
+
+<div class="container">
+    <div style="display: flex">
+        <div style="width: 50%">
+            <h3>Hotels</h3>
+        <p>1. Ocean Paradise Hotel & Resort <a href="https://www.google.com/maps/place/Ocean+Paradise+Hotel+%26+Resort/@21.4184653,91.9798715,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc62a55555555:0x2e775757ca43f46a!5m2!4m1!1i2!8m2!3d21.4184603!4d91.9824464!16s%2Fg%2F1tdrbhmr?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>2. Seagull Hotels <a href="https://www.google.com/maps/place/Seagull+Hotels+Ltd./@21.4272402,92.0040765,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc7c80b779d15:0xc66df8c0d661e36b!5m2!4m1!1i2!8m2!3d21.4272352!4d92.0066514!16s%2Fg%2F11tczknttg?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>3. Sayeman Beach Resort <a href="https://www.google.com/maps/place/Sayeman+Beach+Resort/@21.4141284,91.9814117,16.92z/data=!4m9!3m8!1s0x30adc880c658b5f1:0xbe5e1e83da2852a3!5m2!4m1!1i2!8m2!3d21.4141566!4d91.9840816!16s%2Fg%2F12lt3d9b8?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>4. Hotel The Cox Today <a href="https://www.google.com/maps/place/Hotel+The+Cox+Today/@21.4261938,91.9736472,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc8650b8ad619:0x1e4481d35c0803bb!5m2!4m1!1i2!8m2!3d21.4261888!4d91.9762221!16s%2Fg%2F11xfpx2_d?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        <p>5. Sea Pearl Beach Resort & Spa Cox's Bazar <a href="https://www.google.com/maps/place/Sea+Pearl+Beach+Resort+%26+Spa+Cox's+Bazar/@21.2156545,92.0463191,17z/data=!3m1!4b1!4m9!3m8!1s0x30addb98f90b08b7:0x6c678eda6bd69230!5m2!4m1!1i2!8m2!3d21.2156495!4d92.048894!16s%2Fg%2F11b6t3lr_b?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        </div>
+        <div style="width: 50%"> 
+            <h3>Restaurants</h3>
+            <p>1. Mermaid Cafe <a href="https://www.google.com/maps/place/Ocean+Paradise+Hotel+%26+Resort/@21.4184653,91.9798715,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc62a55555555:0x2e775757ca43f46a!5m2!4m1!1i2!8m2!3d21.4184603!4d91.9824464!16s%2Fg%2F1tdrbhmr?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>2. Pacific Beach Loung Cafe <a href="https://www.google.com/maps/place/Seagull+Hotels+Ltd./@21.4272402,92.0040765,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc7c80b779d15:0xc66df8c0d661e36b!5m2!4m1!1i2!8m2!3d21.4272352!4d92.0066514!16s%2Fg%2F11tczknttg?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>3. Sandy Beach Restaurant <a href="https://www.google.com/maps/place/Sayeman+Beach+Resort/@21.4141284,91.9814117,16.92z/data=!4m9!3m8!1s0x30adc880c658b5f1:0xbe5e1e83da2852a3!5m2!4m1!1i2!8m2!3d21.4141566!4d91.9840816!16s%2Fg%2F12lt3d9b8?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>4. Sea Lamp Beach Cafe <a href="https://www.google.com/maps/place/Hotel+The+Cox+Today/@21.4261938,91.9736472,17z/data=!3m1!4b1!4m9!3m8!1s0x30adc8650b8ad619:0x1e4481d35c0803bb!5m2!4m1!1i2!8m2!3d21.4261888!4d91.9762221!16s%2Fg%2F11xfpx2_d?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+            <p>5. Ocean Dine Restaurant <a href="https://www.google.com/maps/place/Sea+Pearl+Beach+Resort+%26+Spa+Cox's+Bazar/@21.2156545,92.0463191,17z/data=!3m1!4b1!4m9!3m8!1s0x30addb98f90b08b7:0x6c678eda6bd69230!5m2!4m1!1i2!8m2!3d21.2156495!4d92.048894!16s%2Fg%2F11b6t3lr_b?entry=ttu"><ion-icon name="location-outline"></ion-icon></a></p>
+        </div>
+</div>
+<br><br>
+<div class="map">
+    <h3>Map</h3><br>
+    <a href="https://www.google.com/maps/place/Cox's+Bazar+Sea+Beach/@21.4159543,91.9706919,15z/data=!3m1!4b1!4m6!3m5!1s0x30adc96118ced5b5:0xfeac4d792191e35e!8m2!3d21.415935!4d91.9809917!16s%2Fg%2F11fp2zw4dh?entry=ttu"><img src="./images/cox map.jpg" alt=""></a>
+</div>
+<br><br>
+<div class="map">
+    <h3>Travel Tips</h3>
+    <p>1. Know how to identify rip currents</p>
+    <p>2. Sunscreen is a must</p>
+    <p>3. If you are not an expert swimmer, swim closer to life guard</p>
+    <p>4. Don’t forget first aid</p>
+    <p>5. Research regarding food options around</p>
+    <p>6. Pack light but efficiently</p>
+    <p>7. Ditch the gadgets</p>
+    <p>8. Make sure you know how to make your way back to the hotel</p>
+</div>
+<br><br>
+<div class="map">
+    <h3>Must-Try Food Items in Cox’s Bazar</h3>
+    <p>1. Spicy Crab</p>
+    <p>2. Grilled/Fried Rupchanda</p>
+    <p>3. Bhetki Paturi</p>
+    <p>4. Assorted Bhortas</p>
+    <p>5. Ilish Items</p>
+    <p>6. Pahari Morog Jhal Fry</p>
+    <p>7. Shrimp and Lobster</p>
+</div>
+<br><br>
+<div class="page">
+    <h3>Explore More Places</h3>
+    <div class="image-container2">
+        <div class="mySlides">
+            <h2 class="slide-heading">SAINT MARTIN ISLAND</h2>
+            <a href="place.html"><img src="./images/saint martin.jpg" alt="Image 1"></a>
+        </div>
+        <div class="mySlides">
+            <h2 class="slide-heading">LAL SHAPLA BILL</h2>
+            <a href="place.html"><img src="./images/LAL SHAPLA BILL.jpg" alt="Image 2"></a>
+        </div>
+        <div class="mySlides">
+            <h2 class="slide-heading">NIJHOOM DEEP</h2>
+            <a href="place.html"><img src="./images/NIJHOOM DEEP.jpg" alt="Image 3"></a>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

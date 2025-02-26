@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHAKA</title>    
+    <link rel="stylesheet" href="dhaka.css">    
+</head>
+
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        background: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9em;
+        z-index: 99;
+    }
+
+    .navigation a{
+        position: relative;
+        font-size: 1.1em;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+
+    .navigation a::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        background: white;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transition: transform .5s;
+    }
+
+    .navigation a:hover::after{
+        transform: scaleX(1);
+    }
+
+    ul{
+        padding: 10px 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    li{
+        float: left;
+        align-items: center;
+    }
+
+    #dhaka{
+        height: 800px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #dhaka .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #dhaka .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #dhaka .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #dhaka .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    #dhaka .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    @media screen and(max-width: 900px){
+        .wrapper .corousel{
+            grid-auto-columns: calc((100% /1 ) -9px);
+        }
+    }
+
+    @media screen and(max-width: 600px){
+        .wrapper .corousel{
+            grid-auto-columns: 100%;
+        }
+    }
+
+    ::-webkit-scrollbar{
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px gray;
+        border-radius: 4px;
+
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: rgb(186, 121, 246);
+        border-radius: 4px;
+    }
+
+    #gazipur{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #gazipur .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #gazipur .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #gazipur .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #gazipur .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    #gazipur .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #kishoreganj{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #kishoreganj .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #kishoreganj .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #kishoreganj .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #kishoreganj .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    #kishoreganj .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #manikganj{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #manikganj .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #manikganj .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #manikganj .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #manikganj .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #manikganj .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #munshiganj{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #munshiganj .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #munshiganj .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #munshiganj .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #munshiganj .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #munshiganj .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #narayanganj{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #narayanganj .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #narayanganj .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #narayanganj .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #narayanganj .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #narayanganj .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #narshingdi{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #narshingdi .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #narshingdi .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #narshingdi .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #narshingdi .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #narshingdi .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #tangail{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #tangail .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #tangail .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #tangail .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #tangail .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #tangail .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #faridpur{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #faridpur .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #faridpur .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #faridpur .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #faridpur .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #faridpur .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #gopalganj{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #gopalganj .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #gopalganj .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #gopalganj .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #gopalganj .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #gopalganj .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #madaripur{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #madaripur .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #madaripur .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #madaripur .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #madaripur .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #madaripur .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #rajbari{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #rajbari .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #rajbari .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #rajbari .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #rajbari .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #rajbari .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    #shariatpur{
+        height: 700px;
+        background: white;
+        display: inline-block;
+        width: 100%;
+    }
+
+    #shariatpur .wrapper{
+        width: 100%;
+        position: relative;
+    }
+
+    #shariatpur .wrapper .carousel{
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+        overflow-x: scroll;
+        scroll-snap-type: x mendatory;
+        padding: 40px;
+        /*overflow: hidden;*/
+    }
+
+    #shariatpur .carousel .card{
+        width: 500px;
+        height: 400px;
+        list-style: none;
+        background: lavender;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        cursor: pointer;
+        padding-bottom: 2px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        scroll-snap-align: center;
+        transition: .9s;
+    }
+
+    #shariatpur .card .img img{
+        width: 480px;
+        height: 300px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    #shariatpur .card:hover{
+        transform: scale(1.1);
+        z-index:1;
+    }
+
+    h1{
+        margin: 90px;
+        text-align: center;
+        padding: 0;
+        color: black;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    h2{
+        color: black;
+        text-decoration: none;
+    }
+
+    .navigation .home {
+        width: 65px;
+        height: 20px;
+        background: transparent;
+        border: 2px solid white;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        padding: 1px;
+        margin: 1px;
+    }
+
+    .navigation .home:hover {
+        background: black;
+        color: white;
+    }
+
+
+</style>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <ul>
+                <li class="home"><a th:href="@{/}">HOME</a></li>
+                <li><a href="#dhaka">DHAKA</a></li>
+                <li><a href="#gazipur">GAZIPUR</a></li>
+                <li><a href="#kishoreganj">KISHOREGANJ</a></li>
+                <li><a href="#manikganj">MANIKGANJ</a></li>
+                <li><a href="#munshiganj">MUNSHIGANJ</a></li>
+                <li><a href="#narayanganj">NARAYANGANJ</a></li>
+                <li><a href="#narshingdi">NARSHINGDI</a></li>
+                <li><a href="#tangail">TANGAIL</a></li>
+                <li><a href="#faridpur">FARIDPUR</a></li>
+                <li><a href="#gopalganj">GOPALGANJ</a></li>
+                <li><a href="#madaripur">MADARIPUR</a></li>
+                <li><a href="#rajbari">RAJBARI</a></li>
+                <li><a href="#shariatpur">SHARIATPUR</a></li>
+            </ul>             
+        </nav> 
+    </header>       
+
+        <div id="dhaka">
+            <h1>DHAKA</h1> 
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a th:href="@{/lalbagh}">
+                        <div class="img">
+                            <img src="./images/lalbagh.jpg">
+                        </div>
+                        <h2 align="center">LALBAGH FORT</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="musium.html">
+                        <div class="img">
+                            <img src="./images/musium.jpg">
+                        </div>
+                        <h2 align="center">BANGLADESH NATIONAL MUSEUM</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="ahsan manzil.html">
+                        <div class="img">
+                            <img src="./images/ahsan manzil.jpeg">
+                        </div>
+                        <h2 align="center">AHSAN MANZIL</h2>
+                    </li>
+                    <li class="card">
+                        <a href="zoo.html">
+                        <div class="img">
+                            <img src="./images/zoo.jpg">
+                        </div>
+                        <h2 align="center">BANGLADESH NATIONAL ZOO</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="tara mosque.html">
+                        <div class="img">
+                            <img src="./images/tara mosque.jpg">
+                        </div>
+                        <h2 align="center">TARA MOSQUE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="hatirjheel.html">
+                        <div class="img">
+                            <img src="./images/hatirjheel.jpg">
+                        </div>
+                        <h2 align="center">HATIRJHEEL</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="ramna park.html">
+                        <div class="img">
+                            <img src="./images/ramna park.jpg">
+                        </div>
+                        <h2 align="center">RAMNA PARK</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="baitul mukarram.html">
+                        <div class="img">
+                            <img src="./images/BAITUL MUKARRAM NATIONAL MOSQUUE.jpg">
+                        </div>
+                        <h2 align="center">BAITUL MUKARRAM NATIONAL MOSQUE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="liberation war museum.html">
+                        <div class="img">
+                            <img src="./images/LIBERATION WAR MUSEUM.jpg">
+                        </div>
+                        <h2 align="center">LIBERATION WAR MUSEUM</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="dhakeswari.html">
+                        <div class="img">
+                            <img src="./images/DHAKESHWARI NATIONAL TEMPLE.jpg">
+                        </div>
+                        <h2 align="center">DHAKESHWARI NATIONAL TEMPLE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="sangsad.html">
+                        <div class="img">
+                            <img src="./images/SANGSAD BHABAN.jpg">
+                        </div>
+                        <h2 align="center">SANGSAD BHABAN</h2>
+                    </a>
+                    </li>
+                  
+                </ul>
+          
+            </div>   
+
+        </div>  
+        <div id="gazipur">
+            <h1>GAZIPUR</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="safari park.html">
+                        <div class="img">
+                            <img src="BANGABANDHU SHEIKH MUJIB SAFARI PARK.jpg">
+                        </div>
+                        <h2 align="center">BANGABANDHU SHEIKH MUJIB SAFARI PARK</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="nuhash polli.html">
+                        <div class="img">
+                            <img src="NUHASH POLLI.jpg">
+                        </div>
+                        <h2 align="center">NUHASH POLLI</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="bhawal national park.html">
+                        <div class="img">
+                            <img src="BHAWAL NATIONAL PARK.jpg">
+                        </div>
+                        <h2 align="center">BHAWAL NATIONAL PARK</h2>
+                    </li>
+                    <li class="card">
+                        <a href="green view golh resort.html">
+                        <div class="img">
+                            <img src="GREEN VIEW GOLF RESORT.jpg">
+                        </div>
+                        <h2 align="center">GREEN VIEW GOLF RESORT</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="bhawal resort.html">
+                        <div class="img">
+                            <img src="BHAWAL RESORT AND SPA.jpg">
+                        </div>
+                        <h2 align="center">BHAWAL RESORT AND SPA</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="sarah resort.html">
+                        <div class="img">
+                            <img src="SARAH RESORT.jpg">
+                        </div>
+                        <h2 align="center">SARAH RESORT</h2>
+                    </a>
+                    </li>            
+                </ul>      
+        </div>
+        <div id="kishoreganj">
+            <h1>KISHOREGANJ</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="pagla mosque.html">
+                        <div class="img">
+                            <img src="PAGLA MOSQUE.jpg">
+                        </div>
+                        <h2 align="center">PAGLA MOSQUE</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="nehal park.html">
+                        <div class="img">
+                            <img src="NEHAL GREEN PARK.jpg">
+                        </div>
+                        <h2 align="center">NEHAL GREEN PARK</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="austagram.html">
+                        <div class="img">
+                            <img src="AUSTAGRAM HAOR.jpg">
+                        </div>
+                        <h2 align="center">AUSTAGRAM HAOR</h2>
+                    </li>
+                    <li class="card">
+                        <a href="isha kha.html">
+                        <div class="img">
+                            <img src="ISHA KHAN'S JANGALBARI FORT.jpg">
+                        </div>
+                        <h2 align="center">ISHA KHAN'S JANGALBARI FORT</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="chandrabati.html">
+                        <div class="img">
+                            <img src="CHANDRABATI TEMPLE.jpg">
+                        </div>
+                        <h2 align="center">CHANDRABATI TEMPLE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="mithamain.html">
+                        <div class="img">
+                            <img src="ALL WEATHER ROAD OF MITHAMAIN.jpg">
+                        </div>
+                        <h2 align="center">ALL WEATHER ROAD OF MITHAMAIN</h2>
+                    </a>
+                    </li>            
+                </ul>      
+        </div>
+        <div id="manikganj">
+            <h1>MANIKGANJ</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="baliati.html">
+                        <div class="img">
+                            <img src="BALIATI PALACE.jpg">
+                        </div>
+                        <h2 align="center">BALIATI PALACE</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="nava ratna.html">
+                        <div class="img">
+                            <img src="NAVA RATNA TEMPLE.jpg">
+                        </div>
+                        <h2 align="center">NAVA RATNA TEMPLE</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="teota.html">
+                        <div class="img">
+                            <img src="TEOTA ZAMIDAR PALACE.jpg">
+                        </div>
+                        <h2 align="center">TEOTA ZAMIDAR PALACE</h2>
+                    </li>
+                    <li class="card">
+                        <a href="beutha.html">
+                        <div class="img">
+                            <img src="BEUTHA BRIDGE.jpg">
+                        </div>
+                        <h2 align="center">BEUTHA BRIDGE</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="munshiganj">
+            <h1>MUNSHIGANJ</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="mawa.html">
+                        <div class="img">
+                            <img src="MAWA GHAT.jpg">
+                        </div>
+                        <h2 align="center">MAWA GHAT</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="baba adam.html">
+                        <div class="img">
+                            <img src="BABA ADAM MOSQUE.jpg">
+                        </div>
+                        <h2 align="center">BABA ADAM MOSQUE</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="aral beel.html">
+                        <div class="img">
+                            <img src="ARIAL BEEL.jpg">
+                        </div>
+                        <h2 align="center">ARIAL BEEL</h2>
+                    </li>
+                    <li class="card">
+                        <a href="idrakpur.html">
+                        <div class="img">
+                            <img src="IDRAKPUR FORT.jpg">
+                        </div>
+                        <h2 align="center">IDRAKPUR FORT</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="sonarang twin.html">
+                        <div class="img">
+                            <img src="SONARANG TWIN TEMPLE.JPG">
+                        </div>
+                        <h2 align="center">SONARANG TWIN TEMPLE</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="narayanganj">
+            <h1>NARAYANGANJ</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="panam.html">
+                        <div class="img">
+                            <img src="PANAM NAGAR.jpg">
+                        </div>
+                        <h2 align="center">PANAM NAGAR</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="ghiyashuddin azam.html">
+                        <div class="img">
+                            <img src="TOMB OF GHIYASHUDDIN AZAM SHAH.jpg">
+                        </div>
+                        <h2 align="center">TOMB OF GHIYASHUDDIN AZAM SHAH</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="jamdani.html">
+                        <div class="img">
+                            <img src="JAMDANI PALLI.jpg">
+                        </div>
+                        <h2 align="center">JAMDANI PALLI</h2>
+                    </li>
+                    <li class="card">
+                        <a href="zinda.html">
+                        <div class="img">
+                            <img src="ZINDA PARK.jpg">
+                        </div>
+                        <h2 align="center">ZINDA PARK</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="mayadeep.html">
+                        <div class="img">
+                            <img src="MAYADEEP.jpg">
+                        </div>
+                        <h2 align="center">MAYADEEP</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="murapara.html">
+                        <div class="img">
+                            <img src="MURAPARA RAJBARI.jpg">
+                        </div>
+                        <h2 align="center">MURAPARA RAJBARI</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="hajiganj fort.html">
+                        <div class="img">
+                            <img src="HAJIGANJ FORT.jpg">
+                        </div>
+                        <h2 align="center">HAJIGANJ FORT</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="narshingdi">
+            <h1>NARSHINGDI</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="dream holiday.html">
+                        <div class="img">
+                            <img src="DREAM HOLIDAY PARK.jpg">
+                        </div>
+                        <h2 align="center">DREAM HOLIDAY PARK</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="wari.html">
+                        <div class="img">
+                            <img src="WARI-BATESHWAR.jpg">
+                        </div>
+                        <h2 align="center">WARI-BATESHWAR</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="monu mia.html">
+                        <div class="img">
+                            <img src="MONU MIA ZAMIDAR BARI.jpg">
+                        </div>
+                        <h2 align="center">MONU MIA ZAMIDAR BARI</h2>
+                    </li>
+                    <li class="card">
+                        <a href="belabo.html">
+                        <div class="img">
+                            <img src="BELABO BAZAR MOSQUE.jpeg">
+                        </div>
+                        <h2 align="center">BELABO BAZAR MOSQUE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="balapur.html">
+                        <div class="img">
+                            <img src="BALAPUR ZAMIDAR HOUSE.jpg">
+                        </div>
+                        <h2 align="center">BALAPUR ZAMIDAR HOUSE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="parulia.html">
+                        <div class="img">
+                            <img src="PARULIA MOSQUE.jpeg">
+                        </div>
+                        <h2 align="center">PARULIA MOSQUE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="chinishpur.html">
+                        <div class="img">
+                            <img src="CHINISHPUR KALIBARI.jpg">
+                        </div>
+                        <h2 align="center">CHINISHPUR KALIBARI</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="tangail">
+            <h1>TANGAIL</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="mohera.html">
+                        <div class="img">
+                            <img src="MOHERA ZAMIDAR BARI.jpg">
+                        </div>
+                        <h2 align="center">MOHERA ZAMIDAR BARI</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="pakutia.html">
+                        <div class="img">
+                            <img src="PAKUTIA ZAMIDAR BARI.jpg">
+                        </div>
+                        <h2 align="center">PAKUTIA ZAMIDAR BARI</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="jamuna.html">
+                        <div class="img">
+                            <img src="JAMUNA RIVER SIDE.jpg">
+                        </div>
+                        <h2 align="center">JAMUNA RIVER SIDE</h2>
+                    </li>
+                    <li class="card">
+                        <a href="atia.html">
+                        <div class="img">
+                            <img src="ATIA JAME MOSQUE.jpg">
+                        </div>
+                        <h2 align="center">ATIA JAME MOSQUE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="dhanbari.html">
+                        <div class="img">
+                            <img src="DHANBARI NAWAB PALACE.jpg">
+                        </div>
+                        <h2 align="center">DHANBARI NAWAB PALACE</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="nagarpur.html">
+                        <div class="img">
+                            <img src="NAGARPUR ZAMIDAR BARI.jpg">
+                        </div>
+                        <h2 align="center">NAGARPUR ZAMIDAR BARI</h2>
+                    </a>
+                    </li>
+                    <li class="card">
+                        <a href="modhupur.html">
+                        <div class="img">
+                            <img src="MODHUPUR NATIONAL PARK.jpg">
+                        </div>
+                        <h2 align="center">MODHUPUR NATIONAL PARK</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="faridpur">
+            <h1>FARIDPUR</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="mathurapur.html">
+                        <div class="img">
+                            <img src="MATHURAPUR DEUL.jpg">
+                        </div>
+                        <h2 align="center">MATHURAPUR DEUL</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="jagobondhu.html">
+                        <div class="img">
+                            <img src="JAGOBONDHU SREE ANGON.webp">
+                        </div>
+                        <h2 align="center">JAGOBONDHU SREE ANGON</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="jasimuddin.html">
+                        <div class="img">
+                            <img src="HOUSE OF POET JASIMUDDIN.webp">
+                        </div>
+                        <h2 align="center">HOUSE OF POET JASIMUDDIN</h2>
+                    </li>
+                    <li class="card">
+                        <a href="pathrail.html">
+                        <div class="img">
+                            <img src="PATHRAIL MOSQUE.jpg">
+                        </div>
+                        <h2 align="center">PATHRAIL MOSQUE</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="gopalganj">
+            <h1>GOPALGANJ</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="shapla bill.html">
+                        <div class="img">
+                            <img src="LAL SHAPLA BILL.jpg">
+                        </div>
+                        <h2 align="center">LAL SHAPLA BILL</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="sheikh rasel park.html">
+                        <div class="img">
+                            <img src="SHEIKH RASEL SHISHU PARK.jpg">
+                        </div>
+                        <h2 align="center">SHEIKH RASEL SHISHU PARK</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="ujani.html">
+                        <div class="img">
+                            <img src="UJANI PALACE.jpg">
+                        </div>
+                        <h2 align="center">UJANI PALACE</h2>
+                    </li>
+                    <li class="card">
+                        <a href="modhumoti.html">
+                        <div class="img">
+                            <img src="MODHUMOTI BAOR.jpg">
+                        </div>
+                        <h2 align="center">MODHUMOTI BAOR</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="madaripur">
+            <h1>MADARIPUR</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="rajarama.html">
+                        <div class="img">
+                            <img src="RAJARAMA TEMPLE.jpg">
+                        </div>
+                        <h2 align="center">RAJARAMA TEMPLE</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="shokuni.html">
+                        <div class="img">
+                            <img src="SHOKUNI LAKE.jpg">
+                        </div>
+                        <h2 align="center">SHOKUNI LAKE</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="kalikhola.html">
+                        <div class="img">
+                            <img src="KALIKHOLA ZAMIDAR BARI.webp">
+                        </div>
+                        <h2 align="center">KALIKHOLA ZAMIDAR BARI</h2>
+                    </li>
+                    <li class="card">
+                        <a href="jhaudi.html">
+                        <div class="img">
+                            <img src="JHAUDI GIRI.jpg">
+                        </div>
+                        <h2 align="center">JHAUDI GIRI</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+        <div id="rajbari">
+            <h1>RAJBARI</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="baliakandi.html">
+                        <div class="img">
+                            <img src="BALIAKANDI ROYAL PALACE.jpg">
+                        </div>
+                        <h2 align="center">BALIAKANDI ROYAL PALACE</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="mosharraf memorial.html">
+                        <div class="img">
+                            <img src="MIR MOSHARRAF HOSSAIN MEMORIAL CENTER.jpg">
+                        </div>
+                        <h2 align="center">MIR MOSHARRAF HOSSAIN MEMORIAL CENTER</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="jor bangla.html">
+                        <div class="img">
+                            <img src="JOR BANGLA MANDIR.jpg">
+                        </div>
+                        <h2 align="center">JOR BANGLA MANDIR</h2>
+                    </li>
+                </ul>     
+        </div>
+        <div id="shariatpur">
+            <h1>SHARIATPUR</h1>
+            <div class="wrapper">        
+                <ul class="carousel">
+                    <li class="card">
+                        <a href="mohisar.html">
+                        <div class="img">
+                            <img src="MOHISAR DIGUMBORI DIGHI.jpg">
+                        </div>
+                        <h2 align="center">MOHISAR DIGUMBORI DIGHI</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="rudrakar.html">
+                        <div class="img">
+                            <img src="RUDRAKAR MOTH.jpg">
+                        </div>
+                        <h2 align="center">RUDRAKAR MOTH</h2>
+                        </a>
+                    </li>
+                    <li class="card">
+                        <a href="modern fantacy.html">
+                        <div class="img">
+                            <img src="MODERN FANTASY KINGDOM.jpg">
+                        </div>
+                        <h2 align="center">MODERN FANTASY KINGDOM</h2>
+                    </li>
+                    <li class="card">
+                        <a href="sureswar.html">
+                        <div class="img">
+                            <img src="SURESWAR DARBAR SHARIF.jpg">
+                        </div>
+                        <h2 align="center">SURESWAR DARBAR SHARIF</h2>
+                    </a>
+                    </li>
+                </ul>     
+        </div>
+</body>
+</html>
+
+
+
+
+
+    
